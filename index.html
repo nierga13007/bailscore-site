@@ -7,7 +7,7 @@
 <meta name="description" content="BailScore analyse les clauses de votre bail commercial CHR et vous donne un score de risque clair avant que vous signiez.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#13110F;
@@ -20,7 +20,7 @@
     --green-dim:#D8E6DF;
     --grey:#7A7468;
     --white:#FFFFFF;
-    --serif:'Fraunces', Georgia, serif;
+    --serif:'Space Grotesk', -apple-system, sans-serif;
     --sans:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --mono:'JetBrains Mono', monospace;
   }
@@ -35,6 +35,864 @@
     color:var(--ink);
     line-height:1.5;
     -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+
+  img,svg{display:block; max-width:100%;}
+
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(247,244,237,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 0;
+  }
+  .logo{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:1.35rem;
+    letter-spacing:-0.02em;
+  }
+  .logo span{color:var(--terracotta);}
+  .nav-links{
+    display:flex;
+    gap:32px;
+    font-size:0.92rem;
+    color:var(--ink);
+  }
+  .nav-links a{
+    opacity:0.75;
+    transition:opacity 0.2s;
+  }
+  .nav-links a:hover{opacity:1;}
+  .nav-cta{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--ink);
+    color:var(--paper);
+    padding:10px 20px;
+    border-radius:2px;
+    font-size:0.9rem;
+    font-weight:600;
+    transition:background 0.2s;
+  }
+  .nav-cta:hover{background:var(--terracotta);}
+  .nav-mobile-toggle{display:none;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:96px 0 88px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr 0.95fr;
+    gap:64px;
+    align-items:center;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:var(--mono);
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--terracotta);
+    background:var(--terracotta-dim);
+    padding:6px 12px;
+    border-radius:2px;
+    margin-bottom:28px;
+  }
+  h1{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:clamp(2.4rem, 4.2vw, 3.7rem);
+    line-height:1.04;
+    letter-spacing:-0.03em;
+    margin-bottom:24px;
+  }
+  h1 em{
+    font-style:normal;
+    color:var(--terracotta);
+  }
+  .hero-sub{
+    font-size:1.12rem;
+    color:#4A453D;
+    max-width:46ch;
+    margin-bottom:36px;
+  }
+  .hero-actions{
+    display:flex;
+    align-items:center;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .btn-primary{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--terracotta);
+    color:var(--white);
+    font-weight:600;
+    font-size:1rem;
+    padding:16px 28px;
+    border-radius:2px;
+    box-shadow:0 1px 0 rgba(0,0,0,0.1);
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn-primary:hover{
+    transform:translateY(-1px);
+    box-shadow:0 6px 16px rgba(194,73,29,0.28);
+  }
+  .link-secondary{
+    font-size:0.95rem;
+    font-weight:600;
+    border-bottom:1px solid var(--ink);
+    padding-bottom:2px;
+    opacity:0.8;
+  }
+  .link-secondary:hover{opacity:1;}
+
+  /* ---------- Stamp / signature element ---------- */
+  .stamp-wrap{
+    display:flex;
+    justify-content:center;
+    position:relative;
+  }
+  .stamp{
+    width:100%;
+    max-width:380px;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:28px 28px 24px;
+    box-shadow:0 20px 60px -16px rgba(19,17,15,0.22);
+    transform:rotate(1.5deg);
+    position:relative;
+  }
+  .stamp::before{
+    content:"";
+    position:absolute;
+    inset:10px;
+    border:1px dashed var(--line);
+    border-radius:2px;
+    pointer-events:none;
+  }
+  .stamp-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:18px;
+    font-family:var(--mono);
+    font-size:0.68rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--grey);
+  }
+  .stamp-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--terracotta);
+    color:var(--white);
+    font-family:var(--mono);
+    font-size:0.65rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    padding:4px 9px;
+    border-radius:20px;
+  }
+  .stamp-score{
+    text-align:center;
+    margin:6px 0 22px;
+  }
+  .stamp-score .num{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:4.6rem;
+    line-height:1;
+    color:var(--terracotta);
+    letter-spacing:-0.04em;
+  }
+  .stamp-score .den{
+    font-family:var(--mono);
+    font-size:0.9rem;
+    color:var(--grey);
+  }
+  .stamp-score .label{
+    font-size:0.82rem;
+    color:#4A453D;
+    margin-top:6px;
+  }
+  .stamp-rows{
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+    padding-top:18px;
+    border-top:1px solid var(--line);
+  }
+  .stamp-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    font-size:0.82rem;
+  }
+  .stamp-row .name{color:#4A453D;}
+  .stamp-row .val{
+    font-family:var(--mono);
+    font-weight:500;
+    padding:1px 8px;
+    border-radius:20px;
+    font-size:0.75rem;
+  }
+  .val.high{background:var(--terracotta-dim); color:var(--terracotta);}
+  .val.mid{background:#F1E6C9; color:#8A6A18;}
+  .val.low{background:var(--green-dim); color:var(--green);}
+
+  /* ---------- Alert callout ---------- */
+  .alert-box{
+    margin-top:20px;
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    background:var(--paper-dim);
+    border-left:3px solid var(--terracotta);
+    padding:14px 16px;
+    border-radius:0 2px 2px 0;
+    font-size:0.85rem;
+    color:#3E392F;
+    max-width:380px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  /* ---------- Section shells ---------- */
+  section{padding:88px 0;}
+  .section-head{
+    max-width:640px;
+    margin-bottom:56px;
+  }
+  .section-eyebrow{
+    font-family:var(--mono);
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--terracotta);
+    margin-bottom:14px;
+    display:block;
+  }
+  h2{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:clamp(1.9rem, 3vw, 2.6rem);
+    letter-spacing:-0.025em;
+    line-height:1.1;
+  }
+  .section-sub{
+    color:#4A453D;
+    font-size:1.04rem;
+    margin-top:16px;
+  }
+
+  /* ---------- Why grid ---------- */
+  .why{background:var(--white); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .why-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .why-card{
+    background:var(--white);
+    padding:36px 32px;
+  }
+  .why-icon{
+    font-size:1.6rem;
+    margin-bottom:18px;
+  }
+  .why-card h3{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:1.18rem;
+    margin-bottom:10px;
+    letter-spacing:-0.015em;
+  }
+  .why-card p{
+    font-size:0.92rem;
+    color:#4A453D;
+  }
+
+  /* ---------- How it works ---------- */
+  .steps{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:40px;
+    counter-reset:step;
+  }
+  .step{
+    position:relative;
+    padding-top:8px;
+    border-top:2px solid var(--ink);
+  }
+  .step .step-num{
+    font-family:var(--mono);
+    font-size:0.78rem;
+    color:var(--terracotta);
+    display:block;
+    margin-bottom:14px;
+  }
+  .step h3{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:1.2rem;
+    margin-bottom:10px;
+    letter-spacing:-0.01em;
+  }
+  .step p{
+    font-size:0.92rem;
+    color:#4A453D;
+  }
+
+  /* ---------- Pricing ---------- */
+  .pricing{background:var(--ink); color:var(--paper);}
+  .pricing .section-eyebrow{color:#E8A77B;}
+  .pricing .section-sub{color:#BBB4A4;}
+  .price-card{
+    background:#1C1A16;
+    border:1px solid #34302A;
+    border-radius:4px;
+    padding:44px;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:40px;
+    align-items:center;
+  }
+  .price-amount{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:3.4rem;
+    letter-spacing:-0.03em;
+  }
+  .price-amount span{
+    font-family:var(--sans);
+    font-weight:500;
+    font-size:1rem;
+    color:#8A8478;
+    margin-left:8px;
+  }
+  .price-list{
+    display:flex;
+    flex-direction:column;
+    gap:11px;
+    margin-top:24px;
+  }
+  .price-list li{
+    display:flex;
+    gap:10px;
+    font-size:0.92rem;
+    color:#D8D2C4;
+  }
+  .price-list li::before{
+    content:"—";
+    color:var(--terracotta);
+    flex-shrink:0;
+  }
+  .price-cta-col{
+    text-align:center;
+  }
+  .price-cta-col .btn-primary{
+    width:100%;
+    justify-content:center;
+    margin-bottom:14px;
+  }
+  .price-note{
+    font-size:0.78rem;
+    color:#8A8478;
+    max-width:200px;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq-list{
+    display:flex;
+    flex-direction:column;
+  }
+  .faq-item{
+    border-bottom:1px solid var(--line);
+  }
+  .faq-item:first-child{border-top:1px solid var(--line);}
+  .faq-q{
+    width:100%;
+    text-align:left;
+    background:none;
+    border:none;
+    font-family:var(--serif);
+    font-size:1.08rem;
+    font-weight:700;
+    color:var(--ink);
+    padding:24px 0;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    cursor:pointer;
+    letter-spacing:-0.01em;
+  }
+  .faq-q .icon{
+    font-family:var(--mono);
+    font-size:1.1rem;
+    color:var(--terracotta);
+    flex-shrink:0;
+    transition:transform 0.2s;
+  }
+  .faq-item.open .faq-q .icon{transform:rotate(45deg);}
+  .faq-a{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.25s ease;
+  }
+  .faq-a p{
+    font-size:0.95rem;
+    color:#4A453D;
+    padding-bottom:24px;
+    max-width:70ch;
+  }
+  .faq-item.open .faq-a{max-height:300px;}
+
+  /* ---------- Contact ---------- */
+  .contact{background:var(--white); border-top:1px solid var(--line);}
+  .contact-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:64px;
+  }
+  .contact-side h3{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:1.3rem;
+    margin-bottom:14px;
+    letter-spacing:-0.015em;
+  }
+  .contact-side p{
+    font-size:0.92rem;
+    color:#4A453D;
+    margin-bottom:24px;
+  }
+  .contact-tags{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .contact-tag{
+    font-size:0.85rem;
+    display:flex;
+    gap:10px;
+    align-items:baseline;
+  }
+  .contact-tag b{font-family:var(--serif); font-weight:600;}
+
+  form{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+  .form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+  }
+  label{
+    font-size:0.78rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--grey);
+    margin-bottom:6px;
+    display:block;
+  }
+  input, select, textarea{
+    width:100%;
+    font-family:var(--sans);
+    font-size:0.95rem;
+    color:var(--ink);
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:2px;
+    padding:12px 14px;
+  }
+  input:focus, select:focus, textarea:focus{
+    outline:2px solid var(--terracotta);
+    outline-offset:1px;
+  }
+  textarea{resize:vertical; min-height:100px;}
+  .btn-submit{
+    align-self:flex-start;
+    background:var(--ink);
+    color:var(--paper);
+    font-weight:600;
+    font-size:0.95rem;
+    padding:14px 26px;
+    border:none;
+    border-radius:2px;
+    cursor:pointer;
+    transition:background 0.2s;
+  }
+  .btn-submit:hover{background:var(--terracotta);}
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--ink);
+    color:#8A8478;
+    padding:48px 0;
+  }
+  .footer-grid{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+  }
+  .footer-logo{
+    font-family:var(--serif);
+    font-weight:700;
+    color:var(--paper);
+    font-size:1.1rem;
+    letter-spacing:-0.02em;
+  }
+  .footer-links{
+    display:flex;
+    gap:24px;
+    font-size:0.85rem;
+    flex-wrap:wrap;
+  }
+  .footer-links a:hover{color:var(--paper);}
+  .footer-copy{
+    font-size:0.78rem;
+    margin-top:20px;
+    border-top:1px solid #2A2722;
+    padding-top:20px;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:880px){
+    .nav-links{display:none;}
+    .hero-grid{grid-template-columns:1fr; gap:48px;}
+    .stamp-wrap{order:-1;}
+    .why-grid{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr; gap:32px;}
+    .price-card{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr; gap:40px;}
+    .form-row{grid-template-columns:1fr;}
+    .footer-grid{flex-direction:column; align-items:flex-start;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo">Bail<span>Score</span></div>
+    <nav class="nav-links">
+      <a href="#comment">Comment ça marche</a>
+      <a href="#tarif">Tarif</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#tarif" class="nav-cta">Analyser mon bail →</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">⚡ Analyse en 30 secondes</span>
+        <h1>Votre bail commercial ne devrait pas être <em>un pari</em>.</h1>
+        <p class="hero-sub">BailScore analyse les clauses de votre bail CHR en quelques secondes et vous donne un score de risque clair, actionnable, avant que vous signiez.</p>
+        <div class="hero-actions">
+          <a href="#tarif" class="btn-primary">Analyser mon bail — 49&nbsp;€ →</a>
+          <a href="#comment" class="link-secondary">Voir comment ça marche</a>
+        </div>
+      </div>
+
+      <div class="stamp-wrap">
+        <div>
+          <div class="stamp">
+            <div class="stamp-head">
+              <span>Exemple d'analyse</span>
+              <span class="stamp-badge">Risque élevé</span>
+            </div>
+            <div class="stamp-score">
+              <span class="num">5</span><span class="den">/10</span>
+              <div class="label">Score de risque global</div>
+            </div>
+            <div class="stamp-rows">
+              <div class="stamp-row"><span class="name">Clause résiliation</span><span class="val high">8</span></div>
+              <div class="stamp-row"><span class="name">Révision loyer</span><span class="val mid">6</span></div>
+              <div class="stamp-row"><span class="name">Cession / sous-location</span><span class="val mid">7</span></div>
+              <div class="stamp-row"><span class="name">Travaux &amp; charges</span><span class="val low">3</span></div>
+              <div class="stamp-row"><span class="name">Destination CHR</span><span class="val mid">5</span></div>
+            </div>
+          </div>
+          <div class="alert-box">
+            <span>⚠️</span>
+            <span>Clause de résiliation anticipée activable par le bailleur sans indemnité — à renégocier avant signature.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY ===== -->
+  <section class="why" id="comment">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-eyebrow">Pourquoi BailScore</span>
+        <h2>Ce que votre avocat vous dirait, pour 10 fois moins cher.</h2>
+        <p class="section-sub">Un bail commercial mal lu peut coûter des dizaines de milliers d'euros. BailScore rend l'analyse accessible à tous.</p>
+      </div>
+    </div>
+    <div class="wrap" style="padding:0;">
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">🔍</div>
+          <h3>Clauses invisibles détectées</h3>
+          <p>L'IA analyse chaque clause et alerte sur les formulations à risque que l'œil humain fatigué laisse passer — résiliation, révision, cession, destination.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">📊</div>
+          <h3>Score lisible en un coup d'œil</h3>
+          <p>Un score de 1 à 10, un niveau de risque clair (Faible / Modéré / Élevé), et des recommandations concrètes pour négocier.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">💶</div>
+          <h3>49&nbsp;€ vs 300&nbsp;€/heure</h3>
+          <p>Un avocat spécialisé CHR facture entre 250 et 500&nbsp;€ de l'heure. BailScore vous donne en 30 secondes le niveau de vigilance à adopter avant même de décrocher le téléphone.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🏨</div>
+          <h3>Spécialisé CHR &amp; commerce</h3>
+          <p>Pas un outil généraliste. BailScore est conçu pour les restaurateurs, hôteliers, cafetiers et repreneurs de fonds de commerce.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🔒</div>
+          <h3>Vos données restent vôtres</h3>
+          <p>Votre PDF est traité à la volée et n'est pas conservé sur nos serveurs. Aucun stockage, aucune revente, conformité RGPD.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">⚡</div>
+          <h3>Résultat immédiat</h3>
+          <p>Upload, paiement, analyse — en moins de deux minutes vous avez un rapport structuré prêt à partager avec votre conseil.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section id="etapes">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-eyebrow">Comment ça marche</span>
+        <h2>Trois étapes, pas une de plus.</h2>
+        <p class="section-sub">Pas d'inscription, pas de compte, pas d'abonnement caché. Vous uploadez, vous payez, vous recevez votre analyse.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="step-num">01</span>
+          <h3>Uploadez votre bail</h3>
+          <p>Déposez votre bail commercial au format PDF (jusqu'à 4&nbsp;MB). Baux 3-6-9, baux dérogatoires, baux CHR — tous les formats courants sont acceptés.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <h3>Obtenez un aperçu gratuit</h3>
+          <p>BailScore vous affiche immédiatement un score de risque global et les grandes catégories détectées — sans payer, pour que vous sachiez ce que vous achetez.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <h3>Débloquez l'analyse complète</h3>
+          <p>Pour 49&nbsp;€, vous accédez à l'analyse détaillée : 7 axes scorés, alertes clause par clause, recommandations de négociation, rapport exportable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRICING ===== -->
+  <section class="pricing" id="tarif">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-eyebrow">Tarif</span>
+        <h2>Simple et transparent.</h2>
+        <p class="section-sub">Une analyse, un prix. Pas d'abonnement, pas de surprise.</p>
+      </div>
+
+      <div class="price-card">
+        <div>
+          <div class="price-amount">49&nbsp;€<span>paiement unique — par bail analysé</span></div>
+          <ul class="price-list">
+            <li>Score de risque global sur 10</li>
+            <li>Analyse des 7 axes critiques (résiliation, révision, cession, travaux, destination, charges, durée)</li>
+            <li>Alertes clause par clause avec niveau de criticité</li>
+            <li>Recommandations de négociation actionnables</li>
+            <li>Rapport structuré exportable</li>
+            <li>Aperçu gratuit avant paiement</li>
+            <li>Résultat en moins de 2 minutes</li>
+          </ul>
+        </div>
+        <div class="price-cta-col">
+          <a href="#contact" class="btn-primary">Analyser mon bail →</a>
+          <p class="price-note">BailScore est un outil d'aide à la décision. L'analyse fournie ne constitue pas un conseil juridique et ne remplace pas l'avis d'un avocat spécialisé.</p>
+        </div>
+      </div>
+      <p style="font-size:0.78rem; color:#8A8478; margin-top:24px;">Facturé par CHRONOWEB SRL — TVA belge applicable.</p>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-eyebrow">FAQ</span>
+        <h2>Questions fréquentes.</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" type="button">Comment fonctionne l'analyse BailScore ? <span class="icon">+</span></button>
+          <div class="faq-a"><p>BailScore utilise une intelligence artificielle entraînée sur les spécificités des baux commerciaux français (CHR, commerce, artisanat). Votre PDF est analysé selon 7 axes critiques — résiliation, révision du loyer, cession et sous-location, travaux, destination, charges et durée — et chaque axe reçoit un score de risque accompagné d'alertes et de recommandations concrètes.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">BailScore remplace-t-il un avocat ? <span class="icon">+</span></button>
+          <div class="faq-a"><p>Non — et nous l'assumons clairement. BailScore est un outil d'aide à la décision, pas un conseil juridique. Il vous permet de savoir en 30 secondes si votre bail mérite une attention approfondie, quelles clauses surveiller, et avec quels arguments aborder votre avocat ou notaire. Il rend votre conseil juridique plus efficace, pas inutile.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Quels types de baux sont analysés ? <span class="icon">+</span></button>
+          <div class="faq-a"><p>BailScore est spécialisé dans les baux commerciaux français : baux 3-6-9 (article L145-4 du Code de commerce), baux dérogatoires, baux CHR (café, hôtel, restaurant). Il n'est pas adapté aux baux résidentiels, aux baux professionnels libéraux ou aux baux ruraux.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Mes documents sont-ils stockés ou partagés ? <span class="icon">+</span></button>
+          <div class="faq-a"><p>Non. Votre PDF est transmis directement à l'API d'analyse et traité à la volée. Aucun fichier n'est conservé sur nos serveurs après génération du rapport. Vos données ne sont ni stockées, ni revendues, ni partagées avec des tiers. BailScore est conforme au RGPD.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">En quoi BailScore est-il différent de ChatGPT ? <span class="icon">+</span></button>
+          <div class="faq-a"><p>ChatGPT est un outil généraliste. BailScore utilise un prompt spécialisé calibré sur les baux commerciaux CHR français, avec un scoring structuré par axe, des alertes hiérarchisées par niveau de criticité, et un rapport formaté orienté négociation. La différence est visible dès le premier rapport : là où ChatGPT reformule, BailScore alerte.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Puis-je obtenir une facture ? <span class="icon">+</span></button>
+          <div class="faq-a"><p>Oui. Une facture est émise automatiquement par Stripe au moment du paiement, au nom de CHRONOWEB SRL (société belge). La TVA belge (21%) est applicable selon votre statut. Pour toute question de facturation, contactez-nous via le formulaire ci-dessous.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">Que se passe-t-il si l'analyse est incohérente avec mon bail ? <span class="icon">+</span></button>
+          <div class="faq-a"><p>Contactez-nous immédiatement via le formulaire de contact en indiquant le problème rencontré. Nous analysons chaque signalement pour améliorer la qualité du modèle. En cas d'erreur manifeste de notre part, un avoir ou une nouvelle analyse vous sera proposé.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <div class="wrap contact-grid">
+      <div class="contact-side">
+        <h3>Une question avant d'analyser ?</h3>
+        <p>Que vous soyez broker CHR, notaire, expert-comptable ou repreneur, on vous répond sous 24h.</p>
+        <div class="contact-tags">
+          <div class="contact-tag"><b>🤝 Partenariats &amp; intégrations</b></div>
+          <div class="contact-tag">Vous êtes broker CHR, cabinet de transmission ou réseau de franchise ? Parlons-en.</div>
+          <div class="contact-tag" style="margin-top:10px;"><b>🔧 Support technique</b></div>
+          <div class="contact-tag">Problème d'upload, de paiement ou de résultat ? On traite ça en priorité.</div>
+          <div class="contact-tag" style="margin-top:10px;"><b>📋 Analyse sur-mesure</b></div>
+          <div class="contact-tag">Bail atypique ou volume important ? Des formules adaptées existent.</div>
+        </div>
+      </div>
+
+      <form action="https://formspree.io/f/xzdlayza" method="POST">
+        <input type="hidden" name="_subject" value="Nouveau message — BailScore">
+        <div class="form-row">
+          <div>
+            <label for="nom">Nom &amp; prénom</label>
+            <input id="nom" type="text" name="nom" required>
+          </div>
+          <div>
+            <label for="email">Email professionnel</label>
+            <input id="email" type="email" name="_replyto" required>
+          </div>
+        </div>
+        <div>
+          <label for="profil">Vous êtes</label>
+          <select id="profil" name="profil">
+            <option value="">— Sélectionnez —</option>
+            <option>Repreneur / acquéreur de fonds</option>
+            <option>Broker CHR / agent immobilier</option>
+            <option>Notaire</option>
+            <option>Expert-comptable</option>
+            <option>Restaurateur / hôtelier</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message"></textarea>
+        </div>
+        <button class="btn-submit" type="submit">Envoyer le message →</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo">BailScore</div>
+      <div class="footer-links">
+        <a href="#">Mentions légales</a>
+        <a href="#">CGV</a>
+        <a href="#">Politique de confidentialité</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-copy">© 2026 CHRONOWEB SRL — Tous droits réservés</div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.closest('.faq-item');
+      var wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(el){ el.classList.remove('open'); });
+      if(!wasOpen){ item.classList.add('open'); }
+    });
+  });
+</script>
+
+</body>
+</html>    -webkit-font-smoothing:antialiased;
   }
 
   a{color:inherit; text-decoration:none;}
