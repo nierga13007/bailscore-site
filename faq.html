@@ -1,1 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ – BailScore</title>
+<meta name="description" content="Questions fréquentes sur BailScore, l'analyse IA de baux commerciaux.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#13110F;
+  --paper:#F7F4ED;
+  --line:#E2DCCF;
+  --terracotta:#C2491D;
+  --grey:#6E685C;
+  --white:#FFFFFF;
+  --sans:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--sans);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit; text-decoration:none;}
+ul{list-style:none;}
+.wrap{max-width:1000px; margin:0 auto; padding:0 24px;}
 
+header{
+  position:sticky; top:0; z-index:50;
+  background:rgba(247,244,237,0.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav{display:flex; align-items:center; justify-content:space-between; padding:16px 0;}
+.logo{font-weight:800; font-size:1.3rem; letter-spacing:-0.03em;}
+.logo span{color:var(--terracotta);}
+.nav-cta{
+  background:var(--ink); color:var(--paper);
+  padding:11px 20px; border-radius:100px;
+  font-size:0.9rem; font-weight:600;
+  transition:background 0.2s;
+}
+.nav-cta:hover{background:var(--terracotta);}
+
+section{padding:72px 0;}
+.section-title{
+  font-weight:800; font-size:clamp(1.9rem, 4vw, 2.6rem);
+  letter-spacing:-0.03em; text-align:center; margin-bottom:8px;
+}
+.section-sub{
+  text-align:center; color:var(--grey);
+  font-size:1.05rem; margin-bottom:52px;
+}
+
+.faq-list{max-width:760px; margin:0 auto;}
+.faq-item{
+  border-bottom:1px solid var(--line);
+  padding:20px 0;
+}
+.faq-item summary{
+  font-weight:700; font-size:1.05rem;
+  cursor:pointer; list-style:none;
+  display:flex; justify-content:space-between; align-items:center;
+  gap:16px;
+}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{
+  content:"+"; font-size:1.4rem; color:var(--terracotta);
+  transition:transform 0.2s; flex-shrink:0;
+}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item p{
+  color:var(--grey); margin-top:12px; line-height:1.6;
+  font-size:0.95rem;
+}
+
+.final{text-align:center;}
+.final h2{font-size:1.8rem; font-weight:800; margin-bottom:20px; letter-spacing:-0.03em;}
+.final .hero-note{margin-top:18px; font-size:0.9rem; color:var(--grey);}
+
+.btn-primary{
+  display:inline-flex; align-items:center; gap:10px;
+  background:var(--terracotta); color:var(--white);
+  font-weight:700; font-size:1.05rem;
+  padding:17px 30px; border-radius:100px;
+  transition:transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 24px rgba(194,73,29,0.3);
+}
+
+footer{background:var(--ink); color:#8A8478; padding:36px 0;}
+.footer-grid{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
+.footer-logo{font-weight:800; color:var(--paper); font-size:1.1rem; letter-spacing:-0.03em;}
+.footer-links{display:flex; gap:20px; font-size:0.82rem; flex-wrap:wrap;}
+.footer-links a:hover{color:var(--paper);}
+.footer-copy{font-size:0.76rem; margin-top:18px; border-top:1px solid #2A2722; padding-top:18px;}
+
+@media (max-width:820px){
+  .nav-cta{display:none;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="logo">Bail<span>Score</span></a>
+    <a href="https://bailscore-gnlc.vercel.app" class="nav-cta">Analyser mon bail &rarr;</a>
+  </div>
+</header>
+
+<main>
+  <section id="faq">
+    <div class="wrap">
+      <h2 class="section-title">Questions fréquentes</h2>
+      <p class="section-sub">Tout ce qu'il faut savoir avant d'analyser votre bail.</p>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Qu'est-ce que BailScore ?</summary>
+          <p>BailScore est un outil qui analyse automatiquement un bail commercial français (Code de commerce, art. L145) et donne un score de risque clair sur 10, axe par axe : destination, travaux, charges, cession, indexation et sécurité.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Est-ce que ça remplace un avocat ?</summary>
+          <p>Non. BailScore est un premier filtre, pas un conseil juridique. Il permet de repérer rapidement les points sensibles d'un bail avant de décider s'il faut faire appel à un avocat ou un notaire pour approfondir ou faire modifier certaines clauses.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Comment fonctionne l'analyse ?</summary>
+          <p>Vous déposez votre bail au format PDF, l'intelligence artificielle le lit et l'analyse selon des critères juridiques précis, puis vous recevez un score global et un détail par axe en quelques minutes.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Combien de temps dure l'analyse ?</summary>
+          <p>Le score gratuit s'affiche généralement en moins de 30 secondes. L'analyse complète, une fois débloquée, prend également environ 30 secondes à quelques minutes selon la taille du document.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Que devient mon PDF après l'analyse ?</summary>
+          <p>Votre document est utilisé uniquement le temps du traitement de l'analyse et n'est pas conservé au-delà. Seul le résultat de l'analyse (le score et son détail) est temporairement conservé pour vous permettre d'y accéder après paiement.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Quel est le prix ?</summary>
+          <p>Le score global est gratuit. L'analyse complète avec le détail par axe, les alertes et les recommandations est à 49 € TTC, en paiement unique — pas d'abonnement.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Comment se passe le paiement ?</summary>
+          <p>Le paiement est sécurisé via Stripe. La prestation est facturée par CHRONOWEB SRL.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Quels documents puis-je analyser ?</summary>
+          <p>BailScore est conçu pour les baux commerciaux français au format PDF, en particulier dans le secteur CHR (cafés, hôtels, restaurants), mais fonctionne pour tout bail commercial classique.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final" id="contact">
+    <div class="wrap">
+      <h2>D'autres questions ?</h2>
+      <a href="https://bailscore-gnlc.vercel.app" class="btn-primary">Analyser mon bail &rarr;</a>
+      <p class="hero-note">Une question ? <a href="mailto:chronowebsprl@gmail.com" style="color:var(--terracotta); font-weight:600;">Contactez-nous</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo">BailScore</div>
+      <div class="footer-links">
+        <a href="index.html">Accueil</a>
+        <a href="#">Mentions légales</a>
+        <a href="#">CGV</a>
+        <a href="#">Confidentialité</a>
+        <a href="mailto:chronowebsprl@gmail.com">Contact</a>
+      </div>
+    </div>
+    <div class="footer-copy">&copy; 2026 CHRONOWEB SRL — Tous droits réservés</div>
+  </div>
+</footer>
+
+</body>
+</html>
