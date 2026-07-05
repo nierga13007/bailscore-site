@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compresseur PDF</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2b241f;
+    --paper:#f4f1ea;
+    --line:#e2ddd0;
+    --accent:#c5613f;
+    --accent-dim:#f2e2da;
+    --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    display:flex;
+    justify-content:center;
+    padding:28px 16px 60px;
+  }
+  .card{
+    width:100%;
+    max-width:480px;
+  }
+  h1{
+    font-size:1.35rem;
+    font-weight:700;
+    letter-spacing:-0.01em;
+    margin:0 0 4px;
+  }
+  .sub{
+    color:#5f5c54;
+    font-size:0.9rem;
+    margin:0 0 24px;
+    line-height:1.4;
+  }
+  .drop{
+    border:1.5px dashed var(--line);
+    border-radius:10px;
+    padding:28px 16px;
+    text-align:center;
+    background:#fff;
+    cursor:pointer;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .drop.drag{
+    border-color:var(--accent);
+    background:var(--accent-dim);
+  }
+  .drop input{display:none;}
+  .drop-label{
+    font-weight:600;
+    font-size:0.95rem;
+  }
+  .drop-hint{
+    font-size:0.82rem;
+    color:#8a877e;
+    margin-top:4px;
+  }
+  .filename{
+    margin-top:14px;
+    font-family:var(--mono);
+    font-size:0.82rem;
+    color:var(--ink);
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:10px 12px;
+    display:none;
+    word-break:break-all;
+  }
+  .section{
+    margin-top:22px;
+  }
+  .section-title{
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:#8a877e;
+    font-weight:700;
+    margin-bottom:10px;
+  }
+  .modes{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .mode{
+    border:1px solid var(--line);
+    border-radius:9px;
+    padding:12px 14px;
+    background:#fff;
+    cursor:pointer;
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+  }
+  .mode.active{
+    border-color:var(--accent);
+    background:var(--accent-dim);
+  }
+  .mode input{margin-top:3px;}
+  .mode-title{font-weight:600;font-size:0.92rem;}
+  .mode-desc{font-size:0.8rem;color:#5f5c54;margin-top:2px;line-height:1.35;}
+  .levels{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+  }
+  .level{
+    border:1px solid var(--line);
+    border-radius:9px;
+    padding:10px 6px;
+    text-align:center;
+    background:#fff;
+    cursor:pointer;
+    font-size:0.85rem;
+    font-weight:600;
+  }
+  .level.active{
+    border-color:var(--accent);
+    background:var(--accent-dim);
+    color:var(--accent);
+  }
+  button.go{
+    width:100%;
+    margin-top:24px;
+    padding:14px;
+    border:none;
+    border-radius:9px;
+    background:var(--ink);
+    color:#fff;
+    font-size:0.95rem;
+    font-weight:600;
+    cursor:pointer;
+  }
+  button.go:disabled{
+    background:#c9c6bd;
+    cursor:not-allowed;
+  }
+  .status{
+    margin-top:16px;
+    font-size:0.85rem;
+    color:#5f5c54;
+    min-height:1.2em;
+    text-align:center;
+  }
+  .result{
+    margin-top:16px;
+    display:none;
+    border:1px solid var(--line);
+    border-radius:10px;
+    background:#fff;
+    padding:16px;
+  }
+  .result-row{
+    display:flex;
+    justify-content:space-between;
+    font-size:0.88rem;
+    padding:4px 0;
+  }
+  .result-row .k{color:#5f5c54;}
+  .result-row .v{font-family:var(--mono);font-weight:600;}
+  .saved{
+    color:var(--accent);
+  }
+  a.download{
+    display:block;
+    text-align:center;
+    margin-top:14px;
+    padding:12px;
+    border-radius:8px;
+    background:var(--accent);
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    font-size:0.92rem;
+  }
+  .error{
+    color:#b3453c;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>Compresseur PDF</h1>
+  <p class="sub">Réduis la taille d'un PDF directement dans le navigateur — rien n'est envoyé sur un serveur.</p>
+
+  <label class="drop" id="drop">
+    <input type="file" id="fileInput" accept="application/pdf">
+    <div class="drop-label">Choisir un PDF</div>
+    <div class="drop-hint">ou glisse-dépose le fichier ici</div>
+  </label>
+  <div class="filename" id="filename"></div>
+
+  <div class="section">
+    <div class="section-title">Mode</div>
+    <div class="modes">
+      <label class="mode active" data-mode="light">
+        <input type="radio" name="mode" value="light" checked>
+        <div>
+          <div class="mode-title">Optimisation légère</div>
+          <div class="mode-desc">Garde le texte sélectionnable. Gain modeste, sans perte de qualité.</div>
+        </div>
+      </label>
+      <label class="mode" data-mode="strong">
+        <input type="radio" name="mode" value="strong">
+        <div>
+          <div class="mode-title">Compression forte</div>
+          <div class="mode-desc">Reconvertit chaque page en image compressée. Gros gain, idéal pour des PDF scannés ou pleins de photos — le texte n'est alors plus sélectionnable.</div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <div class="section" id="levelSection" style="display:none;">
+    <div class="section-title">Niveau</div>
+    <div class="levels">
+      <div class="level" data-level="low">Léger</div>
+      <div class="level active" data-level="medium">Moyen</div>
+      <div class="level" data-level="high">Fort</div>
+    </div>
+  </div>
+
+  <button class="go" id="goBtn" disabled>Compresser</button>
+  <div class="status" id="status"></div>
+
+  <div class="result" id="result">
+    <div class="result-row"><span class="k">Taille d'origine</span><span class="v" id="sizeBefore">—</span></div>
+    <div class="result-row"><span class="k">Taille finale</span><span class="v" id="sizeAfter">—</span></div>
+    <div class="result-row"><span class="k">Gain</span><span class="v saved" id="sizeSaved">—</span></div>
+    <a class="download" id="downloadLink" download="compresse.pdf">Télécharger le PDF compressé</a>
+  </div>
+</div>
+
+<script>
+pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+const fileInput = document.getElementById('fileInput');
+const drop = document.getElementById('drop');
+const filenameEl = document.getElementById('filename');
+const goBtn = document.getElementById('goBtn');
+const statusEl = document.getElementById('status');
+const resultEl = document.getElementById('result');
+const levelSection = document.getElementById('levelSection');
+
+let currentFile = null;
+let mode = 'light';
+let level = 'medium';
+
+const levelConfig = {
+  low:    { scale: 1.5, quality: 0.8 },
+  medium: { scale: 1.0, quality: 0.6 },
+  high:   { scale: 0.75, quality: 0.4 }
+};
+
+function humanSize(bytes){
+  if(bytes < 1024) return bytes + ' o';
+  if(bytes < 1024*1024) return (bytes/1024).toFixed(1) + ' Ko';
+  return (bytes/(1024*1024)).toFixed(2) + ' Mo';
+}
+
+function setFile(file){
+  if(!file || file.type !== 'application/pdf'){
+    statusEl.textContent = "Merci de choisir un fichier .pdf";
+    statusEl.className = "status error";
+    return;
+  }
+  currentFile = file;
+  filenameEl.style.display = 'block';
+  filenameEl.textContent = file.name + '  ·  ' + humanSize(file.size);
+  goBtn.disabled = false;
+  statusEl.textContent = '';
+  statusEl.className = "status";
+  resultEl.style.display = 'none';
+}
+
+fileInput.addEventListener('change', e => setFile(e.target.files[0]));
+
+['dragover','dragenter'].forEach(evt => drop.addEventListener(evt, e => {
+  e.preventDefault();
+  drop.classList.add('drag');
+}));
+['dragleave','drop'].forEach(evt => drop.addEventListener(evt, e => {
+  e.preventDefault();
+  drop.classList.remove('drag');
+}));
+drop.addEventListener('drop', e => {
+  const file = e.dataTransfer.files[0];
+  if(file) setFile(file);
+});
+
+document.querySelectorAll('.mode').forEach(el => {
+  el.addEventListener('click', () => {
+    document.querySelectorAll('.mode').forEach(m => m.classList.remove('active'));
+    el.classList.add('active');
+    el.querySelector('input').checked = true;
+    mode = el.dataset.mode;
+    levelSection.style.display = mode === 'strong' ? 'block' : 'none';
+  });
+});
+
+document.querySelectorAll('.level').forEach(el => {
+  el.addEventListener('click', () => {
+    document.querySelectorAll('.level').forEach(l => l.classList.remove('active'));
+    el.classList.add('active');
+    level = el.dataset.level;
+  });
+});
+
+async function compressLight(arrayBuffer){
+  const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer, { ignoreEncryption: true });
+  const bytes = await pdfDoc.save({ useObjectStreams: true, addDefaultPage: false });
+  return new Blob([bytes], { type: 'application/pdf' });
+}
+
+async function compressStrong(arrayBuffer, cfg, onProgress){
+  const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+  const { jsPDF } = window.jspdf;
+  let outPdf = null;
+
+  for(let i = 1; i <= pdf.numPages; i++){
+    onProgress(i, pdf.numPages);
+    const page = await pdf.getPage(i);
+    const viewport = page.getViewport({ scale: cfg.scale });
+
+    const canvas = document.createElement('canvas');
+    canvas.width = Math.ceil(viewport.width);
+    canvas.height = Math.ceil(viewport.height);
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    await page.render({ canvasContext: ctx, viewport }).promise;
+
+    const imgData = canvas.toDataURL('image/jpeg', cfg.quality);
+    const widthPt = viewport.width / cfg.scale;
+    const heightPt = viewport.height / cfg.scale;
+    const orientation = widthPt > heightPt ? 'l' : 'p';
+
+    if(!outPdf){
+      outPdf = new jsPDF({ unit: 'pt', format: [widthPt, heightPt], orientation });
+    } else {
+      outPdf.addPage([widthPt, heightPt], orientation);
+    }
+    outPdf.addImage(imgData, 'JPEG', 0, 0, widthPt, heightPt);
+  }
+
+  return outPdf.output('blob');
+}
+
+goBtn.addEventListener('click', async () => {
+  if(!currentFile) return;
+  goBtn.disabled = true;
+  resultEl.style.display = 'none';
+  statusEl.className = "status";
+  statusEl.textContent = "Lecture du fichier…";
+
+  try{
+    const arrayBuffer = await currentFile.arrayBuffer();
+    let blob;
+
+    if(mode === 'light'){
+      statusEl.textContent = "Optimisation en cours…";
+      blob = await compressLight(arrayBuffer);
+    } else {
+      const cfg = levelConfig[level];
+      blob = await compressStrong(arrayBuffer, cfg, (i, total) => {
+        statusEl.textContent = `Page ${i} / ${total}…`;
+      });
+    }
+
+    const originalSize = currentFile.size;
+    const finalSize = blob.size;
+    const saved = originalSize - finalSize;
+    const savedPct = originalSize > 0 ? Math.max(0, Math.round((saved / originalSize) * 100)) : 0;
+
+    document.getElementById('sizeBefore').textContent = humanSize(originalSize);
+    document.getElementById('sizeAfter').textContent = humanSize(finalSize);
+    document.getElementById('sizeSaved').textContent = saved > 0
+      ? `-${savedPct}% (${humanSize(saved)})`
+      : "aucun gain sur ce fichier";
+
+    const url = URL.createObjectURL(blob);
+    const link = document.getElementById('downloadLink');
+    link.href = url;
+    const base = currentFile.name.replace(/\.pdf$/i, '');
+    link.download = base + '-compresse.pdf';
+
+    resultEl.style.display = 'block';
+    statusEl.textContent = "Terminé.";
+  } catch(err){
+    console.error(err);
+    statusEl.className = "status error";
+    statusEl.textContent = "Erreur pendant la compression : " + err.message;
+  } finally {
+    goBtn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
