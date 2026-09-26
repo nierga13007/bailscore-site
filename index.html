@@ -54,6 +54,9 @@
   .nav{display:flex; align-items:center; justify-content:space-between; padding:16px 0;}
   .logo{font-weight:800; font-size:1.3rem; letter-spacing:-0.03em;}
   .logo span{color:var(--terracotta);}
+  .nav-right{display:flex; align-items:center; gap:24px;}
+  .nav-link{font-size:0.92rem; font-weight:600; color:var(--grey); transition:color 0.2s;}
+  .nav-link:hover{color:var(--terracotta);}
   .nav-cta{
     background:var(--ink); color:var(--paper);
     padding:11px 20px; border-radius:100px;
@@ -243,7 +246,10 @@
 <header>
   <div class="wrap nav">
     <div class="logo">Bail<span>Score</span></div>
-    <a href="https://bailscore-gnlc.vercel.app" class="nav-cta">Analyser mon bail &rarr;</a>
+    <div class="nav-right">
+      <a href="/blog/" class="nav-link">Blog</a>
+      <a href="https://bailscore-gnlc.vercel.app" class="nav-cta">Analyser mon bail &rarr;</a>
+    </div>
   </div>
 </header>
 
@@ -337,13 +343,15 @@
     <div class="footer-grid">
       <div class="footer-logo">BailScore</div>
       <div class="footer-links">
+  <a href="/blog/">Blog</a>
   <a href="mentions-legales.html">Mentions l&eacute;gales</a>
   <a href="cgv.html">CGV</a>
   <a href="confidentialite.html">Confidentialit&eacute;</a>
   <a href="faq.html">FAQ</a>
   <a href="compresseur-pdf.html">Compresseur PDF</a>
   <a href="mailto:chronowebsprl@gmail.com">Contact</a>
-</div>
+      </div>
+    </div>
     <div class="footer-copy">&copy; 2026 CHRONOWEB SRL &mdash; Tous droits r&eacute;serv&eacute;s</div>
   </div>
 </footer>
