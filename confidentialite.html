@@ -1,88 +1,393 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mentions légales — BailScore</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#13110F; --paper:#F7F4ED; --line:#E2DCCF;
-    --terracotta:#C2491D; --green:#1F6F54; --grey:#6E685C; --white:#FFFFFF;
-    --sans:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  body{font-family:var(--sans); background:var(--paper); color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased;}
-  a{color:var(--terracotta); text-decoration:none;}
-  a:hover{text-decoration:underline;}
-  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
-  header{border-bottom:1px solid var(--line); padding:20px 0;}
-  .nav{display:flex; align-items:center; justify-content:space-between;}
-  .logo{font-weight:800; font-size:1.2rem; letter-spacing:-0.03em;}
-  .logo span{color:var(--terracotta);}
-  .back{font-size:0.9rem; font-weight:600; color:var(--grey);}
-  main{padding:56px 0 80px;}
-  h1{font-weight:800; font-size:clamp(1.8rem,4vw,2.4rem); letter-spacing:-0.03em; margin-bottom:8px;}
-  .updated{color:var(--grey); font-size:0.88rem; margin-bottom:40px;}
-  h2{font-weight:700; font-size:1.2rem; margin:36px 0 12px; letter-spacing:-0.01em;}
-  p, li{font-size:0.98rem; color:#3A362F; margin-bottom:10px;}
-  ul{padding-left:20px; margin-bottom:14px;}
-  .placeholder{background:#F3E7C8; color:#8A6A18; padding:1px 6px; border-radius:4px; font-size:0.9em; font-weight:600;}
-  .note{background:var(--white); border:1px solid var(--line); border-radius:10px; padding:16px 18px; font-size:0.88rem; color:var(--grey); margin:28px 0;}
-  footer{border-top:1px solid var(--line); padding:24px 0; text-align:center; font-size:0.8rem; color:var(--grey);}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politique de confidentialité — BailScore</title>
+    <meta name="description" content="Comment BailScore traite les données contenues dans votre bail : finalités, sous-traitants, durée de conservation, transferts hors Union européenne et exercice de vos droits.">
+    <link rel="canonical" href="https://www.bailscore.fr/confidentialite.html">
+    <meta name="robots" content="index, follow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+    :root {
+        --ink: #13110F;
+        --paper: #F7F4ED;
+        --line: #E2DCCF;
+        --terracotta: #C2491D;
+        --green: #1F6F54;
+        --grey: #6E685C;
+        --white: #FFFFFF;
+        --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: var(--sans);
+        background: var(--paper);
+        color: var(--ink);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+        color: var(--terracotta);
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .wrap {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+
+    header {
+        border-bottom: 1px solid var(--line);
+        padding: 20px 0;
+    }
+
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        font-weight: 800;
+        font-size: 1.2rem;
+        letter-spacing: -0.03em;
+    }
+
+    .logo span {
+        color: var(--terracotta);
+    }
+
+    .back {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--grey);
+    }
+
+    main {
+        padding: 56px 0 80px;
+    }
+
+    h1 {
+        font-weight: 800;
+        font-size: clamp(1.8rem, 4vw, 2.4rem);
+        letter-spacing: -0.03em;
+        margin-bottom: 8px;
+    }
+
+    .updated {
+        color: var(--grey);
+        font-size: 0.88rem;
+        margin-bottom: 36px;
+    }
+
+    .lede {
+        font-size: 1.05rem;
+        color: #3A362F;
+        margin-bottom: 8px;
+    }
+
+    h2 {
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin: 36px 0 12px;
+        letter-spacing: -0.01em;
+    }
+
+    h3 {
+        font-weight: 700;
+        font-size: 1rem;
+        margin: 22px 0 8px;
+    }
+
+    p, li {
+        font-size: 0.98rem;
+        color: #3A362F;
+        margin-bottom: 10px;
+    }
+
+    ul {
+        padding-left: 20px;
+        margin-bottom: 14px;
+    }
+
+    strong {
+        font-weight: 650;
+        color: var(--ink);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 16px 0 22px;
+        font-size: 0.92rem;
+    }
+
+    th, td {
+        text-align: left;
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--line);
+        vertical-align: top;
+    }
+
+    th {
+        background: var(--white);
+        font-weight: 700;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--grey);
+    }
+
+    .placeholder {
+        background: #F3E7C8;
+        color: #8A6A18;
+        padding: 1px 6px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        font-weight: 600;
+    }
+
+    .note {
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 16px 18px;
+        font-size: 0.9rem;
+        color: #3A362F;
+        margin: 26px 0;
+    }
+
+    .note strong {
+        display: block;
+        margin-bottom: 6px;
+    }
+
+    footer {
+        border-top: 1px solid var(--line);
+        padding: 24px 0;
+        text-align: center;
+        font-size: 0.8rem;
+        color: var(--grey);
+    }
+    </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap nav">
-    <div class="logo">Bail<span>Score</span></div>
-    <a href="index.html" class="back">&larr; Retour au site</a>
-  </div>
-</header>
+    <header>
+        <div class="wrap nav">
+            <div class="logo">
+                Bail
+                <span>Score</span>
+            </div>
+            <a href="index.html" class="back">&larr; Retour au site</a>
+        </div>
+    </header>
 
-<main class="wrap">
-  <h1>Mentions légales</h1>
-  <p class="updated">Dernière mise à jour : juillet 2026</p>
+    <main class="wrap">
+        <h1>Politique de confidentialité</h1>
+        <p class="updated">Dernière mise à jour : septembre 2026</p>
 
-  <h2>1. Éditeur du site</h2>
-  <p>Le site bailscore.fr et le service BailScore sont édités par :</p>
-  <p><strong>CHRONOWEB SRL</strong><br>
-  Société de droit belge (SRL)<br>
-  Siège social : Rue de la Colonne 1A, 1080 Bruxelles, Belgique<br>
-  Numéro d'entreprise (BCE) : 0555.758.629<br>
-  Numéro de TVA intracommunautaire : BE0555.758.629<br>
-  Représentant légal : Cédric Garnier, gérant<br>
-  Contact : <a href="mailto:chronowebsprl@gmail.com">chronowebsprl@gmail.com</a></p>
+        <p class="lede">Vous nous confiez un bail. C'est un document qui contient des noms, des adresses et des montants. Cette page explique ce que nous en faisons, qui y a accès, et pourquoi nous ne le gardons pas.</p>
 
-  <h2>2. Hébergement</h2>
-  <p>Le site et l'application BailScore sont hébergés par :</p>
-  <p><strong>Vercel Inc.</strong><br>
-  340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis<br>
-  <a href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a></p>
+        <h2>1. Responsable du traitement</h2>
+        <p>
+            <strong>CHRONOWEB SRL</strong>
+            <br>
 
-  <h2>3. Directeur de la publication</h2>
-  <p>Cédric Garnier, en qualité de gérant de CHRONOWEB SRL.</p>
+              Société de droit belge (SRL)
+            <br>
 
-  <h2>4. Propriété intellectuelle</h2>
-  <p>L'ensemble des éléments présents sur le site bailscore.fr (textes, logo, charte graphique, structure, méthodologie d'analyse) est la propriété exclusive de CHRONOWEB SRL, sauf mention contraire. Toute reproduction, représentation, modification ou exploitation totale ou partielle de ces éléments, sans autorisation écrite préalable, est interdite.</p>
+              Siège social : Rue de la Colonne 1A, 1080 Bruxelles, Belgique
+            <br>
 
-  <h2>5. Nature du service</h2>
-  <p>BailScore est un outil d'aide à la décision basé sur l'intelligence artificielle. Les résultats fournis ont une valeur indicative et ne constituent en aucun cas un conseil juridique, comptable ou financier, et ne sauraient se substituer à l'avis d'un avocat, d'un expert-comptable ou de tout autre professionnel qualifié. CHRONOWEB SRL décline toute responsabilité quant aux décisions prises sur la base des résultats de cette analyse.</p>
+              Numéro d'entreprise (BCE) : 0555.758.629
+            <br>
 
-  <h2>6. Droit applicable</h2>
-  <p>Les présentes mentions légales sont soumises au droit belge pour ce qui concerne le fonctionnement de la société éditrice, sans préjudice des dispositions impératives de protection des consommateurs applicables aux clients résidant dans l'Union européenne, notamment en France (voir nos <a href="cgv.html">Conditions Générales de Vente</a>).</p>
+              Représentant légal : Cédric Garnier, gérant
+            <br>
 
-  <div class="note">
-    ⚠️ Les informations d'identification de CHRONOWEB SRL ont été complétées. Une relecture par un professionnel du droit reste recommandée avant publication définitive.
-  </div>
-</main>
+              Contact : 
+            <a href="mailto:chronowebsprl@gmail.com">chronowebsprl@gmail.com</a>
+        </p>
 
-<footer>
-  &copy; 2026 CHRONOWEB SRL — Tous droits réservés
-</footer>
+        <h2>2. Données traitées</h2>
+
+        <h3>Le document que vous déposez</h3>
+        <p>
+            <strong>Il n'est pas stocké.</strong>
+             Le bail est traité le temps de produire l'analyse, puis il disparaît. Aucune copie n'est conservée.
+        </p>
+        <p>Le bail que vous téléversez est traité pour produire votre analyse. Il peut contenir des données personnelles : identité des parties, adresses, montants de loyer et de charges, numéro SIRET, dates. Nous ne cherchons pas ces informations et ne les exploitons pas pour elles-mêmes : elles ne sont traitées que dans la mesure nécessaire à l'analyse du contrat.</p>
+        <p>
+            <strong>Vous pouvez caviarder le document avant de le déposer.</strong>
+             Masquer les noms, l'adresse exacte ou l'enseigne n'empêche pas l'analyse des clauses, qui porte sur la rédaction du contrat et non sur l'identité des parties.
+        </p>
+
+        <h3>Les données de paiement</h3>
+        <p>Le paiement est traité par Stripe. Nous ne voyons ni ne conservons vos coordonnées bancaires. Nous recevons uniquement la confirmation de la transaction et les éléments nécessaires à l'établissement de la facture.</p>
+
+        <h3>Les données techniques</h3>
+        <p>Notre hébergeur enregistre des données de connexion (adresse IP, horodatage, type de navigateur) à des fins de sécurité et de bon fonctionnement du service.</p>
+
+        <h2>3. Finalités et bases légales</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Traitement</th>
+                    <th>Base légale</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Analyser le bail et vous délivrer le rapport</td>
+                    <td>Exécution du contrat (art. 6.1.b RGPD)</td>
+                </tr>
+                <tr>
+                    <td>Encaisser le paiement et établir la facture</td>
+                    <td>Exécution du contrat et obligation légale (art. 6.1.b et 6.1.c)</td>
+                </tr>
+                <tr>
+                    <td>Conserver les pièces comptables</td>
+                    <td>Obligation légale (art. 6.1.c)</td>
+                </tr>
+                <tr>
+                    <td>Assurer la sécurité et la disponibilité du service</td>
+                    <td>Intérêt légitime (art. 6.1.f)</td>
+                </tr>
+                <tr>
+                    <td>Répondre à vos messages</td>
+                    <td>Intérêt légitime (art. 6.1.f)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>4. Sous-traitants et destinataires</h2>
+        <p>Vos données ne sont ni vendues, ni louées, ni transmises à des tiers à des fins commerciales. Elles sont traitées par les prestataires strictement nécessaires au fonctionnement du service :</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Prestataire</th>
+                    <th>Rôle</th>
+                    <th>Localisation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <strong>Vercel Inc.</strong>
+                    </td>
+                    <td>Hébergement du site et de l'application</td>
+                    <td>États-Unis</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Anthropic PBC</strong>
+                    </td>
+                    <td>Modèle d'intelligence artificielle réalisant l'analyse du contrat</td>
+                    <td>États-Unis</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Stripe</strong>
+                    </td>
+                    <td>Traitement des paiements</td>
+                    <td>États-Unis et Irlande</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Conformément aux conditions applicables à l'interface de programmation utilisée, le contenu que nous transmettons à Anthropic n'est pas utilisé pour entraîner ses modèles.</p>
+
+        <h2>5. Transferts hors Union européenne</h2>
+        <p>Les prestataires mentionnés ci-dessus sont établis aux États-Unis. Ces transferts sont encadrés par les mécanismes prévus au chapitre V du RGPD, en particulier les clauses contractuelles types de la Commission européenne et, le cas échéant, la certification au Data Privacy Framework. Les engagements correspondants figurent dans les accords de traitement conclus avec chacun d'eux.</p>
+
+        <h2>6. Durée de conservation</h2>
+        <ul>
+            <li>
+                <strong>Le bail déposé :</strong>
+                 il n'est pas conservé. Le document est traité le temps de produire l'analyse, puis il disparaît. Il n'est écrit sur aucun disque, archivé dans aucune base, et nous ne pouvons pas le retrouver après coup, y compris à votre demande.
+            </li>
+            <li>
+                <strong>Le rapport d'analyse :</strong>
+                 il vous est remis au terme du traitement et n'est pas conservé de notre côté. Pensez à l'enregistrer.
+            </li>
+            <li>
+                <strong>Les données de facturation :</strong>
+                 sept ans, conformément aux obligations comptables applicables.
+            </li>
+            <li>
+                <strong>Les échanges par courriel :</strong>
+                 le temps nécessaire au traitement de votre demande, puis trois ans à compter du dernier contact.
+            </li>
+            <li>
+                <strong>Les journaux techniques :</strong>
+                 selon la politique de conservation de notre hébergeur, à des fins de sécurité.
+            </li>
+        </ul>
+
+        <h2>7. Sécurité</h2>
+        <p>Les échanges avec le site sont chiffrés (HTTPS). L'accès aux documents déposés est limité aux personnes et aux systèmes nécessaires à la production de l'analyse. Le service ne nécessitant pas de création de compte, aucun mot de passe n'est stocké.</p>
+
+        <h2>8. Vos droits</h2>
+        <p>Vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation et d'opposition, ainsi que d'un droit à la portabilité de vos données.</p>
+        <p>
+            Pour les exercer, écrivez à 
+            <a href="mailto:chronowebsprl@gmail.com">chronowebsprl@gmail.com</a>
+            . Une réponse vous sera apportée dans un délai d'un mois.
+        </p>
+        <p>
+            Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de l'
+            <strong>Autorité de protection des données</strong>
+             belge, autorité de contrôle du responsable de traitement (
+            <a href="https://www.autoriteprotectiondonnees.be" target="_blank" rel="noopener">autoriteprotectiondonnees.be</a>
+            ). Si vous résidez en France, vous pouvez également saisir la 
+            <strong>CNIL</strong>
+             (
+            <a href="https://www.cnil.fr" target="_blank" rel="noopener">cnil.fr</a>
+            ).
+        </p>
+
+        <h2>9. Cookies et mesure d'audience</h2>
+        <p>
+            <strong>Le site n'utilise aucun cookie de mesure d'audience, de publicité ni de traçage.</strong>
+             Aucun bandeau de consentement n'est donc nécessaire.
+        </p>
+        <p>Les statistiques de fréquentation sont fournies par les outils de notre hébergeur, qui fonctionnent sans cookie et sans identifiant persistant. Seuls peuvent être déposés les cookies strictement nécessaires au fonctionnement du service et au paiement sécurisé, exemptés de consentement.</p>
+
+        <h2>10. Modifications</h2>
+        <p>Cette politique peut évoluer avec le service. La date de dernière mise à jour figure en haut de cette page. Toute modification substantielle sera signalée sur le site.</p>
+
+        <div class="note">
+            <strong>Une question sur vos données ?</strong>
+
+                Écrivez à 
+            <a href="mailto:chronowebsprl@gmail.com">chronowebsprl@gmail.com</a>
+            . Voir aussi les 
+            <a href="mentions-legales.html">mentions légales</a>
+             et les 
+            <a href="cgv.html">conditions générales de vente</a>
+            .
+              
+        </div>
+    </main>
+
+    <footer>
+        <div class="wrap">&copy; 2026 CHRONOWEB SRL &mdash; Tous droits réservés</div>
+    </footer>
 
 </body>
 </html>
