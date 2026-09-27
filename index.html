@@ -473,6 +473,518 @@
       <h2>BailScore est n&eacute; d'un bail que je n'ai pas sign&eacute;.</h2>
       <p class="sig">C&eacute;dric Garnier, fondateur</p>
 
+      <p>Un local bien plac&eacute;, une affaire qui tenait la route, et un contrat de neuf ans dont la lecture m'a pris une soir&eacute;e enti&egrave;re.</p>
+
+      <p>Les grosses r&eacute;parations &agrave; ma charge. La taxe fonci&egrave;re refactur&eacute;e sans inventaire. Une clause de destination trop &eacute;troite pour ce que je comptais faire des lieux. <span class="strong-line">Rien d'ill&eacute;gal, mais fortement d&eacute;favorable.</span> J'ai renonc&eacute;.</p>
+
+      <p>Ce que j'ai compris ce soir-l&agrave;, c'est que la plupart des repreneurs n'ont ni le temps ni les rep&egrave;res pour faire cette lecture. Ils signent, et ils d&eacute;couvrent trois ans plus tard, quand la premi&egrave;re r&eacute;gularisation de charges arrive.</p>
+
+      <p>J'ai pass&eacute; treize ans dans l'h&ocirc;tellerie et la restauration, et j'ai dirig&eacute; une agence immobili&egrave;re. J'ai vu les deux c&ocirc;t&eacute;s de la table, celui qui r&eacute;dige et celui qui signe.</p>
+
+      <p>BailScore fait cette lecture &agrave; votre place, en quelques minutes. Il ne d&eacute;cide pas pour vous. Il vous dit o&ugrave; regarder avant de signer.</p>
+    </div>
+  </section>
+
+  <section class="privacy" id="confidentialite">
+    <div class="wrap">
+      <div class="privacy-box">
+        <h2>Votre bail n'est pas conserv&eacute;</h2>
+        <p class="headline">Le document est trait&eacute; le temps de produire l'analyse, puis il dispara&icirc;t. Aucune copie, aucune base, aucun archivage.</p>
+        <p>Pas de cr&eacute;ation de compte, pas de mot de passe, aucun cookie de tra&ccedil;age ni de publicit&eacute;.</p>
+        <p>Vous pouvez caviarder les noms, l'adresse exacte ou l'enseigne avant de d&eacute;poser le fichier&nbsp;: l'analyse porte sur la r&eacute;daction des clauses, pas sur l'identit&eacute; des parties.</p>
+        <p>Le d&eacute;tail figure dans notre <a href="confidentialite.html" style="color:var(--terracotta); font-weight:600;">politique de confidentialit&eacute;</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing" id="tarif">
+    <div class="wrap">
+      <h2 class="section-title">Simple et facile.</h2>
+      <p class="section-sub">Une analyse, un prix. Pas de surprise.</p>
+      <div class="price-card">
+        <div class="price-amount">49&nbsp;&euro;<span>paiement unique, par bail</span></div>
+        <ul class="price-list">
+          <li>Score de risque global sur 10</li>
+          <li>6 axes critiques analysés</li>
+          <li>Alertes clause par clause</li>
+          <li>Recommandations de n&eacute;gociation</li>
+          <li>Rapport exportable</li>
+          <li>R&eacute;sultat en 60 secondes</li>
+        </ul>
+        <p class="price-note">Outil d'aide &agrave; la d&eacute;cision. Ne remplace pas un avocat ni un notaire. Factur&eacute; par CHRONOWEB SRL.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="final" id="contact">
+    <div class="wrap">
+      <h2>Pr&ecirc;t &agrave; analyser votre bail ?</h2>
+      <a href="https://bailscore-gnlc.vercel.app" class="btn-primary">Commencer maintenant &rarr;</a>
+      <p class="hero-note">Une question ? <a href="mailto:chronowebsprl@gmail.com" style="color:var(--terracotta); font-weight:600;">&Eacute;crivez-nous</a>.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo">BailScore</div>
+      <div class="footer-links">
+  <a href="/blog/">Blog</a>
+  <a href="mentions-legales.html">Mentions l&eacute;gales</a>
+  <a href="cgv.html">CGV</a>
+  <a href="confidentialite.html">Confidentialit&eacute;</a>
+  <a href="faq.html">FAQ</a>
+  <a href="compresseur-pdf.html">Compresseur PDF</a>
+  <a href="mailto:chronowebsprl@gmail.com">Contact</a>
+      </div>
+    </div>
+    <div class="footer-copy">&copy; 2026 CHRONOWEB SRL &mdash; Tous droits r&eacute;serv&eacute;s</div>
+  </div>
+</footer>
+
+</body>
+</html>
+  body{
+    font-family:var(--sans);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  .wrap{max-width:1000px; margin:0 auto; padding:0 24px;}
+
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(247,244,237,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:16px 0;}
+  .logo{font-weight:800; font-size:1.3rem; letter-spacing:-0.03em;}
+  .logo span{color:var(--terracotta);}
+  .nav-right{display:flex; align-items:center; gap:24px;}
+  .nav-link{font-size:0.92rem; font-weight:600; color:var(--grey); transition:color 0.2s;}
+  .nav-link:hover{color:var(--terracotta);}
+  .nav-cta{
+    background:var(--ink); color:var(--paper);
+    padding:11px 20px; border-radius:100px;
+    font-size:0.9rem; font-weight:600;
+    transition:background 0.2s;
+  }
+  .nav-cta:hover{background:var(--terracotta);}
+
+  .hero{padding:72px 0 64px;}
+  .hero-inner{
+    display:grid; grid-template-columns:1.1fr 0.9fr;
+    gap:56px; align-items:center;
+  }
+  .eyebrow{
+    display:inline-block;
+    font-size:0.85rem; font-weight:700;
+    color:var(--terracotta);
+    margin-bottom:20px;
+  }
+  h1{
+    font-weight:800;
+    font-size:clamp(2.6rem, 6vw, 4rem);
+    line-height:1.02;
+    letter-spacing:-0.035em;
+    margin-bottom:20px;
+  }
+  h1 em{font-style:normal; color:var(--terracotta);}
+  .hero-sub{
+    font-size:1.15rem; color:var(--grey);
+    max-width:34ch; margin-bottom:32px;
+  }
+  .btn-primary{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--terracotta); color:var(--white);
+    font-weight:700; font-size:1.05rem;
+    padding:17px 30px; border-radius:100px;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn-primary:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 24px rgba(194,73,29,0.3);
+  }
+  .hero-note{margin-top:16px; font-size:0.9rem; color:var(--grey);}
+
+  .stamp{
+    background:var(--white);
+    border-radius:18px;
+    padding:26px;
+    box-shadow:0 24px 60px -20px rgba(19,17,15,0.28);
+    transform:rotate(1.5deg);
+  }
+  .stamp-head{
+    display:flex; justify-content:space-between; align-items:center;
+    margin-bottom:14px; font-size:0.72rem; font-weight:600;
+    text-transform:uppercase; letter-spacing:0.04em; color:var(--grey);
+  }
+  .stamp-badge{
+    background:var(--terracotta); color:var(--white);
+    font-size:0.66rem; letter-spacing:0.04em;
+    padding:4px 10px; border-radius:100px;
+  }
+  .stamp-score{text-align:center; margin:8px 0 20px;}
+  .stamp-score .num{
+    font-weight:900; font-size:5rem; line-height:1;
+    color:var(--terracotta); letter-spacing:-0.04em;
+  }
+  .stamp-score .den{font-weight:600; font-size:1rem; color:var(--grey);}
+  .stamp-score .label{font-size:0.85rem; color:var(--grey); margin-top:8px;}
+  .stamp-rows{
+    display:flex; flex-direction:column; gap:10px;
+    padding-top:18px; border-top:1px solid var(--line);
+  }
+  .stamp-row{display:flex; align-items:center; justify-content:space-between; font-size:0.88rem;}
+  .stamp-row .name{color:#4A453D;}
+  .stamp-row .val{font-weight:700; padding:2px 10px; border-radius:100px; font-size:0.78rem;}
+  .val.high{background:var(--terracotta-dim); color:var(--terracotta);}
+  .val.mid{background:#F3E7C8; color:#8A6A18;}
+  .val.low{background:var(--green-dim); color:var(--green);}
+
+  section{padding:72px 0;}
+  .section-title{
+    font-weight:800; font-size:clamp(1.9rem, 4vw, 2.6rem);
+    letter-spacing:-0.03em; text-align:center; margin-bottom:8px;
+  }
+  .section-sub{
+    text-align:center; color:var(--grey);
+    font-size:1.05rem; margin-bottom:52px;
+  }
+  .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:40px;}
+  .step{text-align:center;}
+  .step-num{
+    width:48px; height:48px; margin:0 auto 18px;
+    display:flex; align-items:center; justify-content:center;
+    background:var(--ink); color:var(--paper);
+    border-radius:100px; font-weight:800; font-size:1.1rem;
+  }
+  .step h3{font-weight:700; font-size:1.2rem; letter-spacing:-0.01em; margin-bottom:8px;}
+  .step p{font-size:0.95rem; color:var(--grey); max-width:30ch; margin:0 auto;}
+
+  .pricing{background:var(--ink); color:var(--paper);}
+  .pricing .section-title{color:var(--paper);}
+  .pricing .section-sub{color:#B3AC9D;}
+  .price-card{
+    max-width:480px; margin:0 auto;
+    background:#1C1A16; border:1px solid #34302A;
+    border-radius:22px; padding:40px; text-align:center;
+  }
+  .price-amount{font-weight:900; font-size:4rem; letter-spacing:-0.04em; line-height:1;}
+  .price-amount span{font-weight:500; font-size:1rem; color:#8A8478; display:block; margin-top:8px;}
+  .price-list{
+    display:flex; flex-direction:column; gap:14px;
+    margin:32px 0; text-align:left;
+  }
+  .price-list li{display:flex; gap:12px; font-size:0.96rem; color:#D8D2C4;}
+  .price-list li::before{content:"\2713"; color:var(--terracotta); font-weight:800; flex-shrink:0;}
+  .price-card .btn-primary{width:100%; justify-content:center;}
+  .price-note{font-size:0.8rem; color:#8A8478; margin-top:18px;}
+
+  .final{text-align:center;}
+  .final h2{font-weight:800; font-size:clamp(2rem,5vw,3rem); letter-spacing:-0.03em; margin-bottom:20px; max-width:18ch; margin-left:auto; margin-right:auto;}
+  .final .hero-note{margin-top:18px;}
+
+  footer{background:var(--ink); color:#8A8478; padding:36px 0;}
+  .footer-grid{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
+  .footer-logo{font-weight:800; color:var(--paper); font-size:1.1rem; letter-spacing:-0.03em;}
+  .footer-links{display:flex; gap:20px; font-size:0.82rem; flex-wrap:wrap;}
+  .footer-links a:hover{color:var(--paper);}
+  .footer-copy{font-size:0.76rem; margin-top:18px; border-top:1px solid #2A2722; padding-top:18px;}
+
+
+  /* ---------- Bande accroche ---------- */
+  .band{background:var(--ink); color:var(--paper); padding:56px 0; text-align:center;}
+  .band p{font-weight:800; font-size:clamp(1.4rem,3.4vw,2.1rem); letter-spacing:-0.03em; line-height:1.25; max-width:26ch; margin:0 auto;}
+  .band em{font-style:normal; color:var(--terracotta);}
+  .band .sub strong{color:var(--paper); font-weight:700;}
+  .band .sub{font-weight:500; font-size:1rem; color:#B3AC9D; letter-spacing:0; margin-top:16px; max-width:44ch;}
+
+  /* ---------- Cartes generiques ---------- */
+  .cards{display:grid; grid-template-columns:repeat(2,1fr); gap:24px;}
+  .card{background:var(--white); border-radius:18px; padding:30px 32px; box-shadow:0 14px 34px -24px rgba(19,17,15,0.25);}
+  .card h3{font-weight:800; font-size:1.25rem; letter-spacing:-0.02em; margin-bottom:10px;}
+  .card .tag{display:inline-block; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--terracotta); margin-bottom:10px;}
+  .card p{font-size:0.98rem; color:var(--grey); margin-bottom:10px;}
+  .card ul{margin-top:14px;}
+  .card li{font-size:0.94rem; color:#4A453D; padding-left:18px; position:relative; margin-bottom:7px;}
+  .card li::before{content:"\2022"; position:absolute; left:2px; color:var(--terracotta); font-weight:800;}
+
+  /* ---------- Axes ---------- */
+  .axes{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  .axis{background:var(--white); border:1px solid var(--line); border-radius:14px; padding:22px 24px;}
+  .axis h3{font-weight:700; font-size:1.02rem; letter-spacing:-0.01em; margin-bottom:6px;}
+  .axis p{font-size:0.9rem; color:var(--grey); line-height:1.55;}
+  .axis .ref{display:block; margin-top:10px; font-size:0.76rem; font-weight:600; color:var(--terracotta);}
+
+  /* ---------- Bloc deux colonnes ---------- */
+  .split{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;}
+  .split h2{font-weight:800; font-size:clamp(1.7rem,3.6vw,2.3rem); letter-spacing:-0.03em; line-height:1.15; margin-bottom:16px;}
+  .split p{font-size:1.02rem; color:var(--grey); margin-bottom:14px;}
+  .split .quote{background:var(--white); border-left:4px solid var(--terracotta); border-radius:0 14px 14px 0; padding:22px 26px; font-size:1rem; color:#3A362F;}
+
+  /* ---------- Fondateur ---------- */
+  .founder{background:var(--white);}
+  .founder .wrap{max-width:760px;}
+  .founder h2{font-weight:800; font-size:clamp(1.7rem,3.6vw,2.3rem); letter-spacing:-0.03em; margin-bottom:8px;}
+  .founder .sig{font-size:0.82rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--terracotta); margin-bottom:22px;}
+  .founder p{font-size:1.04rem; color:#3A362F; margin-bottom:16px; line-height:1.72;}
+  .founder .strong-line{font-weight:700; color:var(--ink);}
+
+  /* ---------- Confidentialite ---------- */
+  .privacy{background:var(--paper);}
+  .privacy-box{background:var(--white); border-radius:18px; padding:36px 40px; max-width:820px; margin:0 auto; box-shadow:0 14px 34px -24px rgba(19,17,15,0.22);}
+  .privacy-box h2{font-weight:800; font-size:1.5rem; letter-spacing:-0.025em; margin-bottom:14px;}
+  .privacy-box p{font-size:0.99rem; color:var(--grey); margin-bottom:12px;}
+  .privacy-box .headline{font-size:1.06rem; color:var(--ink); font-weight:650;}
+
+  @media (max-width:820px){
+    .cards{grid-template-columns:1fr;}
+    .axes{grid-template-columns:1fr;}
+    .split{grid-template-columns:1fr; gap:28px;}
+    .band{padding:40px 0;}
+    .card{padding:24px 22px;}
+    .privacy-box{padding:26px 22px;}
+  }
+
+  @media (max-width:820px){
+    .hero{padding:48px 0 56px;}
+    .hero-inner{grid-template-columns:1fr; gap:44px;}
+    .stamp-wrap{display:flex; justify-content:center;}
+    .stamp{max-width:360px; width:100%;}
+    .hero-sub{max-width:none;}
+    .steps{grid-template-columns:1fr; gap:36px;}
+    .nav-cta{display:none;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;} *{transition:none !important;}
+  }
+</style> 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qu'est-ce qu'une analyse de bail commercial ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Une analyse de bail commercial consiste à examiner chaque clause du contrat (destination, charges, cession, indexation, sécurité, travaux) pour identifier les risques juridiques et financiers avant signature."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Que faut-il vérifier dans un bail commercial ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Il faut vérifier la répartition des charges et travaux (article 606), la clause de destination, les conditions de cession, l'indexation du loyer et les clauses de sécurité potentiellement réputées non écrites."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "BailScore",
+  "description": "Analyse de bail commercial clause par clause, score de risque instantané.",
+  "provider": {
+    "@type": "Organization",
+    "name": "CHRONOWEB SRL"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "49",
+    "priceCurrency": "EUR"
+  }
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo">Bail<span>Score</span></div>
+    <div class="nav-right">
+      <a href="/blog/" class="nav-link">Blog</a>
+      <a href="https://bailscore-gnlc.vercel.app" class="nav-cta">Analyser mon bail &rarr;</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="eyebrow">&#9889; Sp&eacute;cialiste du bail commercial</span>
+        <h1>Analyse ton bail commercial <em>avant de signer</em>.</h1>
+        <p class="hero-sub">Un score de risque clair, clause par clause, en 60&nbsp;secondes. 49&nbsp;&euro;, sans abonnement ni cr&eacute;ation de compte.</p>
+        <a href="https://bailscore-gnlc.vercel.app" class="btn-primary">Analyser mon bail &rarr;</a>
+        <p class="hero-note">Aper&ccedil;u gratuit avant paiement.</p>
+      </div>
+      <div class="stamp-wrap">
+        <div class="stamp">
+          <div class="stamp-head">
+            <span>Exemple</span>
+            <span class="stamp-badge">Risque &eacute;lev&eacute;</span>
+          </div>
+          <div class="stamp-score">
+            <span class="num">5</span><span class="den">/10</span>
+            <div class="label">Score de risque global</div>
+          </div>
+          <div class="stamp-rows">
+            <div class="stamp-row"><span class="name">Travaux</span><span class="val high">8</span></div>
+            <div class="stamp-row"><span class="name">Charges</span><span class="val mid">6</span></div>
+            <div class="stamp-row"><span class="name">Cession</span><span class="val mid">7</span></div>
+            <div class="stamp-row"><span class="name">Indexation</span><span class="val low">3</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="band">
+    <div class="wrap">
+      <p>Mieux vaut attendre <em>60&nbsp;secondes</em> d'analyse que subir <em>60&nbsp;mois</em> de proc&eacute;dure.</p>
+      <p class="sub">Parce qu'un bail <strong>commercial</strong> mal lu se paie pendant des ann&eacute;es.</p>
+    </div>
+  </section>
+
+  <section id="pour-qui">
+    <div class="wrap">
+      <h2 class="section-title">Preneur ou bailleur</h2>
+      <p class="section-sub">Le m&ecirc;me contrat ne se lit pas de la m&ecirc;me fa&ccedil;on des deux c&ocirc;t&eacute;s. BailScore a un mode pour chacun.</p>
+      <div class="cards">
+
+        <div class="card">
+          <span class="tag">Vous prenez &agrave; bail</span>
+          <h3>Ce que vous vous engagez &agrave; payer</h3>
+          <p>Vous reprenez un fonds, vous ouvrez un point de vente, vous signez pour neuf ans. L'analyse vous montre ce que le contrat met &agrave; votre charge et ce qu'il vous emp&ecirc;che de faire.</p>
+          <ul>
+            <li>Charges et imp&ocirc;ts r&eacute;ellement refactur&eacute;s</li>
+            <li>Travaux qui vous incombent, et ceux qui ne le peuvent pas</li>
+            <li>Marge de man&oelig;uvre pour faire &eacute;voluer votre activit&eacute;</li>
+            <li>Conditions de sortie et de revente</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <span class="tag">Vous donnez &agrave; bail</span>
+          <h3>Ce que votre bail ne prot&egrave;ge pas</h3>
+          <p>Vous louez un local commercial. L'analyse vous signale les clauses fragiles, celles qui risquent d'&ecirc;tre &eacute;cart&eacute;es en cas de litige, et les obligations d'information que vous devez respecter.</p>
+          <ul>
+            <li>Clauses susceptibles d'&ecirc;tre r&eacute;put&eacute;es non &eacute;crites</li>
+            <li>Inventaire des charges et &eacute;tats obligatoires</li>
+            <li>Indexation et r&eacute;vision du loyer</li>
+            <li>Garanties et conditions de cession</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="comment">
+    <div class="wrap">
+      <h2 class="section-title">3 &eacute;tapes</h2>
+      <p class="section-sub">Pas d'inscription. Pas de compte. Pas d'abonnement.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Uploadez votre bail</h3>
+          <p>Votre bail commercial au format PDF.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Aper&ccedil;u gratuit</h3>
+          <p>Votre score de risque, avant de payer.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Analyse compl&egrave;te</h3>
+          <p>Le rapport d&eacute;taill&eacute; pour 49 &euro;.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="axes">
+    <div class="wrap">
+      <h2 class="section-title">Six axes, article par article</h2>
+      <p class="section-sub">Chaque axe est not&eacute; et rattach&eacute; aux textes qui s'appliquent.</p>
+      <div class="axes">
+
+        <div class="axis">
+          <h3>Destination</h3>
+          <p>Ce que le bail vous autorise &agrave; exercer, et la proc&eacute;dure pour en sortir si votre activit&eacute; &eacute;volue.</p>
+          <span class="ref">L145-47 &agrave; L145-55</span>
+        </div>
+
+        <div class="axis">
+          <h3>Travaux</h3>
+          <p>La fronti&egrave;re entre entretien et grosses r&eacute;parations, et ce qui ne peut plus vous &ecirc;tre transf&eacute;r&eacute;.</p>
+          <span class="ref">Art. 606 C. civ. &middot; R145-35</span>
+        </div>
+
+        <div class="axis">
+          <h3>Charges</h3>
+          <p>L'inventaire pr&eacute;cis et limitatif, la taxe fonci&egrave;re, et les postes non imputables au locataire.</p>
+          <span class="ref">L145-40-2 &middot; R145-35 &agrave; R145-37</span>
+        </div>
+
+        <div class="axis">
+          <h3>Indexation</h3>
+          <p>L'indice retenu, la p&eacute;riode de r&eacute;f&eacute;rence, et les clauses d'&eacute;chelle mobile irr&eacute;guli&egrave;res.</p>
+          <span class="ref">L145-38 &middot; L145-39</span>
+        </div>
+
+        <div class="axis">
+          <h3>Cession</h3>
+          <p>Ce que le bailleur peut vraiment refuser, et la dur&eacute;e de votre garantie apr&egrave;s la vente.</p>
+          <span class="ref">L145-16 &agrave; L145-16-2</span>
+        </div>
+
+        <div class="axis">
+          <h3>S&eacute;curit&eacute;</h3>
+          <p>Dur&eacute;e, cong&eacute; triennal, renouvellement, et les clauses qui fragilisent votre position.</p>
+          <span class="ref">L145-4 &middot; L145-8 &agrave; L145-17</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="notaire">
+    <div class="wrap split">
+      <div>
+        <h2>Compl&eacute;mentaire de votre notaire, pas &agrave; sa place.</h2>
+        <p>Le notaire et l'avocat valident la forme juridique de l'acte. C'est leur m&eacute;tier, et rien ne le remplace.</p>
+        <p>BailScore fait une autre lecture, &eacute;conomique celle-l&agrave;&nbsp;: ce que les clauses vont vous co&ucirc;ter sur neuf ans, ce qu'elles vous interdisent, et o&ugrave; se situe votre marge de n&eacute;gociation avant la signature.</p>
+        <p>Les deux lectures ne se recoupent pas. Elles s'additionnent.</p>
+      </div>
+      <div class="quote">
+        <p><strong>Ce que BailScore ne fait pas&nbsp;:</strong> pas de mise en demeure, pas de courrier pr&ecirc;t &agrave; envoyer, pas de r&eacute;&eacute;criture de votre bail, pas de probabilit&eacute; de gagner un proc&egrave;s.</p>
+        <p>Un diagnostic mal utilis&eacute; se retourne contre celui qui l'a envoy&eacute;. L'outil s'arr&ecirc;te l&agrave; o&ugrave; commence le conseil juridique, et vous renvoie vers un professionnel quand c'est le moment.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="founder" id="qui">
+    <div class="wrap">
+      <h2>BailScore est n&eacute; d'un bail que je n'ai pas sign&eacute;.</h2>
+      <p class="sig">C&eacute;dric Garnier, fondateur</p>
+
       <p>Un local &agrave; Marseille, une affaire qui tenait la route, et un contrat de neuf ans dont la lecture m'a pris une soir&eacute;e enti&egrave;re.</p>
 
       <p>Les grosses r&eacute;parations &agrave; ma charge. La taxe fonci&egrave;re refactur&eacute;e sans inventaire. Une clause de destination trop &eacute;troite pour ce que je comptais faire des lieux. <span class="strong-line">Rien d'ill&eacute;gal, tout de d&eacute;favorable.</span> J'ai renonc&eacute;.</p>
