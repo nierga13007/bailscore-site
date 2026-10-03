@@ -200,6 +200,17 @@
   .tarif-badge{position:absolute; top:-12px; left:22px; background:var(--terracotta); color:#fff; font-size:0.7rem; font-weight:800; text-transform:uppercase; letter-spacing:0.06em; padding:4px 12px; border-radius:100px;}
 
 
+  .hero-by{margin-top:6px; font-size:0.86rem;}
+  .hero-by a{color:var(--terracotta); font-weight:600;}
+  .extrait{max-width:760px; margin:0 auto; background:var(--white); border-radius:18px; padding:30px 32px; box-shadow:0 14px 34px -24px rgba(19,17,15,0.25);}
+  .extrait-head{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; font-size:0.74rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:var(--grey); padding-bottom:14px; border-bottom:1px solid var(--line); margin-bottom:6px;}
+  .ex-row{display:grid; grid-template-columns:110px 1fr; gap:16px; padding:16px 0; border-bottom:1px solid var(--line);}
+  .ex-row:last-of-type{border-bottom:none;}
+  .ex-axe{font-weight:700; font-size:0.95rem;}
+  .ex-axe .val{display:inline-block; margin-top:6px; font-weight:700; padding:2px 10px; border-radius:100px; font-size:0.78rem;}
+  .ex-row p{font-size:0.94rem; color:#3A362F; line-height:1.6;}
+  .ex-reco{margin-top:6px; background:var(--terracotta-dim); border-radius:12px; padding:14px 18px; font-size:0.92rem; color:#7A2E10;}
+  .extrait-note{text-align:center; font-size:0.84rem; color:var(--grey); margin-top:18px;}
   .final{text-align:center;}
   .final h2{font-weight:800; font-size:clamp(2rem,5vw,3rem); letter-spacing:-0.03em; margin-bottom:20px; max-width:18ch; margin-left:auto; margin-right:auto;}
   .final .hero-note{margin-top:18px;}
@@ -282,6 +293,12 @@
     .hero-sub{max-width:none;}
     .steps{grid-template-columns:1fr; gap:36px;}
     .nav-cta{display:none;}
+    .nav-right{gap:10px;}
+    .nav-link{font-size:0.76rem;}
+    .logo{font-size:1.1rem;}
+    .nav-hide{display:none;}
+    .ex-row{grid-template-columns:1fr; gap:6px;}
+    .extrait{padding:24px 20px;}
   }
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;} *{transition:none !important;}
@@ -335,9 +352,11 @@
   <div class="wrap nav">
     <div class="logo">Bail<span>Score</span></div>
     <div class="nav-right">
-      <a href="/blog/" class="nav-link">Blog</a>
+      <a href="investisseurs.html" class="nav-link">Investisseurs</a>
       <a href="tarifs.html" class="nav-link">Tarifs pros</a>
-      <a href="https://billing.stripe.com/p/login/7sY00i2Kf5kSaZrg7x0Jq00" class="nav-link" rel="noopener">Espace client</a>
+      <a href="a-propos.html" class="nav-link">Qui suis-je</a>
+      <a href="/blog/" class="nav-link nav-hide">Blog</a>
+      <a href="https://billing.stripe.com/p/login/7sY00i2Kf5kSaZrg7x0Jq00" class="nav-link nav-hide" rel="noopener">Espace client</a>
       <a href="https://bailscore-gnlc.vercel.app" class="nav-cta">Analyser mon bail &rarr;</a>
     </div>
   </div>
@@ -352,6 +371,7 @@
         <p class="hero-sub">Un score de risque clair, clause par clause, en 60&nbsp;secondes. 49&nbsp;&euro;, sans abonnement ni cr&eacute;ation de compte.</p>
         <a href="https://bailscore-gnlc.vercel.app" class="btn-primary">Analyser mon bail &rarr;</a>
         <p class="hero-note">Aper&ccedil;u gratuit avant paiement.</p>
+        <p class="hero-note hero-by">Cr&eacute;&eacute; par C&eacute;dric Garnier, investisseur immobilier. <a href="a-propos.html">Qui suis-je&nbsp;?</a></p>
       </div>
       <div class="stamp-wrap">
         <div class="stamp">
@@ -403,7 +423,7 @@
             <li>Indexation et r&eacute;vision du loyer</li>
             <li>Garanties et conditions de cession</li>
           </ul>
-          <p class="who"><strong>&Agrave; qui &ccedil;a s'adresse&nbsp;:</strong> propri&eacute;taires de locaux, investisseurs immobiliers, SCI, gestionnaires de patrimoine.</p>
+          <p class="who"><strong>&Agrave; qui &ccedil;a s'adresse&nbsp;:</strong> propri&eacute;taires de locaux, investisseurs immobiliers, SCI, gestionnaires de patrimoine. <a href="investisseurs.html" style="color:var(--terracotta); font-weight:600;">Avant d'acheter des murs occup&eacute;s &rarr;</a></p>
         </div>
 
       </div>
@@ -478,6 +498,30 @@
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <section id="rapport" style="padding-top:0;">
+    <div class="wrap">
+      <h2 class="section-title">&Agrave; quoi ressemble un rapport</h2>
+      <p class="section-sub">Extrait d'un rapport r&eacute;el, anonymis&eacute;&nbsp;: nom, adresse, montants et activit&eacute; ont &eacute;t&eacute; retir&eacute;s.</p>
+      <div class="extrait">
+        <div class="extrait-head"><span>Rapport d'analyse de bail commercial</span><span>Point de vue&nbsp;: preneur</span></div>
+        <div class="ex-row">
+          <div class="ex-axe">Destination<br><span class="val mid">4/10</span></div>
+          <p>Destination large en principe, mais l'autorisation de l'activit&eacute; principale du preneur est r&eacute;vocable sur simple demande du bailleur, sans indemnit&eacute;. Cette r&eacute;vocabilit&eacute; unilat&eacute;rale cr&eacute;e une ins&eacute;curit&eacute; importante pour l'exploitation et pour la valeur du fonds.</p>
+        </div>
+        <div class="ex-row">
+          <div class="ex-axe">Cession<br><span class="val low">7/10</span></div>
+          <p>Cession libre &agrave; l'acqu&eacute;reur du fonds, avec simple signification au bailleur (L145-16). Pas de clause de solidarit&eacute; du c&eacute;dant, ce qui est favorable. Globalement conforme et protecteur.</p>
+        </div>
+        <div class="ex-row">
+          <div class="ex-axe">S&eacute;curit&eacute;<br><span class="val mid">6/10</span></div>
+          <p>Facult&eacute; de r&eacute;siliation triennale du preneur pr&eacute;serv&eacute;e, avec pr&eacute;avis de six mois par acte extrajudiciaire (L145-4, d'ordre public).</p>
+        </div>
+        <p class="ex-reco"><strong>Recommandation critique&nbsp;:</strong> s&eacute;curiser l'autorisation d'activit&eacute; en la rendant irr&eacute;vocable, ou obtenir un engagement &eacute;crit du bailleur de ne pas la r&eacute;voquer pendant la dur&eacute;e du bail.</p>
+      </div>
+      <p class="extrait-note">Le rapport complet contient le score global, les six axes, les alertes, les points positifs et les recommandations de n&eacute;gociation, en PDF.</p>
     </div>
   </section>
 
@@ -590,6 +634,7 @@
       <div class="footer-logo">BailScore</div>
       <div class="footer-links">
   <a href="/blog/">Blog</a>
+  <a href="investisseurs.html">Investisseurs</a>
   <a href="tarifs.html">Tarifs pros</a>
   <a href="a-propos.html">Qui suis-je</a>
   <a href="https://billing.stripe.com/p/login/7sY00i2Kf5kSaZrg7x0Jq00" rel="noopener">Espace client</a>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avant d'acheter des murs occupés | BailScore</title>
+<meta name="description" content="Investisseurs : BailScore lit le bail en place clause par clause (indexation, charges refacturées, cession, durée) et donne un score de risque en 60 secondes, avant d'acheter des murs occupés.">
+<link rel="canonical" href="https://www.bailscore.fr/investisseurs.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#13110F; --paper:#F7F4ED; --line:#E2DCCF;
+    --terracotta:#C2491D; --green:#1F6F54; --grey:#6E685C; --white:#FFFFFF;
+    --sans:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:var(--sans); background:var(--paper); color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased;}
+  a{color:var(--terracotta); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:900px; margin:0 auto; padding:0 24px;}
+  header{border-bottom:1px solid var(--line); padding:20px 0;}
+  .nav{display:flex; align-items:center; justify-content:space-between;}
+  .logo{font-weight:800; font-size:1.2rem; letter-spacing:-0.03em; color:var(--ink);}
+  .logo span{color:var(--terracotta);}
+  .back{font-size:0.9rem; font-weight:600; color:var(--grey);}
+  main{padding:56px 0 72px;}
+  .eyebrow{font-size:0.82rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:var(--terracotta); margin-bottom:14px;}
+  h1{font-weight:800; font-size:clamp(2rem,5vw,3.1rem); letter-spacing:-0.035em; line-height:1.08; margin-bottom:18px;}
+  .lead{font-size:1.15rem; color:var(--grey); max-width:46ch; margin-bottom:28px;}
+  .btn{display:inline-flex; background:var(--terracotta); color:#fff; font-weight:700; padding:15px 28px; border-radius:100px; font-size:1rem;}
+  .btn:hover{text-decoration:none; box-shadow:0 10px 24px rgba(194,73,29,0.3);}
+  .note{font-size:0.88rem; color:var(--grey); margin-top:14px;}
+  h2{font-weight:800; font-size:clamp(1.4rem,3vw,1.8rem); letter-spacing:-0.025em; margin:56px 0 12px;}
+  p{font-size:1.02rem; color:#3A362F; margin-bottom:14px;}
+  .axes{display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:22px;}
+  .axis{background:var(--white); border:1px solid var(--line); border-radius:14px; padding:20px 22px;}
+  .axis h3{font-weight:700; font-size:1.02rem; margin-bottom:6px;}
+  .axis p{font-size:0.92rem; color:var(--grey); margin-bottom:8px;}
+  .axis .ref{font-size:0.76rem; font-weight:600; color:var(--terracotta);}
+  .not{background:var(--white); border-left:4px solid var(--terracotta); border-radius:0 14px 14px 0; padding:22px 26px; margin-top:20px;}
+  .not p:last-child{margin-bottom:0;}
+  .plans{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:22px 0 10px;}
+  .plan{background:var(--ink); color:var(--paper); border-radius:14px; padding:20px 22px;}
+  .plan strong{display:block; font-size:1.05rem;}
+  .plan span{display:block; font-size:0.9rem; color:#B3AC9D;}
+  .plan .p{font-weight:800; font-size:1.6rem; color:var(--paper); margin:6px 0 2px;}
+  footer{border-top:1px solid var(--line); padding:24px 0; text-align:center; font-size:0.8rem; color:var(--grey);}
+  @media (max-width:760px){ .axes,.plans{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html">Bail<span>Score</span></a>
+    <a href="index.html" class="back">&larr; Retour au site</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="eyebrow">Investisseurs et bailleurs</p>
+  <h1>Avant d'acheter des murs occup&eacute;s, lisez le bail en place.</h1>
+  <p class="lead">Dans des murs occup&eacute;s, vous achetez un loyer. Il ne vaut que ce que le bail le prot&egrave;ge. BailScore lit ce bail clause par clause et vous donne un score de risque en 60&nbsp;secondes.</p>
+  <a class="btn" href="https://bailscore-gnlc.vercel.app">Analyser un bail &rarr;</a>
+  <p class="note">Aper&ccedil;u gratuit avant paiement. Choisissez le mode &laquo;&nbsp;Bailleur&nbsp;&raquo;.</p>
+
+  <h2>Ce que l'analyse regarde dans le bail</h2>
+  <p>Les six axes de BailScore, lus du c&ocirc;t&eacute; du propri&eacute;taire, avec les articles qui s'appliquent.</p>
+  <div class="axes">
+    <div class="axis">
+      <h3>Indexation</h3>
+      <p>L'indice retenu, la p&eacute;riode de r&eacute;f&eacute;rence, les clauses d'&eacute;chelle mobile irr&eacute;guli&egrave;res qui fragilisent la hausse du loyer.</p>
+      <span class="ref">L145-38 &middot; L145-39</span>
+    </div>
+    <div class="axis">
+      <h3>Charges refactur&eacute;es</h3>
+      <p>L'inventaire pr&eacute;cis et limitatif, les postes que vous pouvez r&eacute;ellement r&eacute;cup&eacute;rer, l'&eacute;tat r&eacute;capitulatif annuel.</p>
+      <span class="ref">L145-40-2 &middot; R145-35 &agrave; R145-37</span>
+    </div>
+    <div class="axis">
+      <h3>Cession et garanties</h3>
+      <p>Ce que le bailleur peut vraiment refuser, et la dur&eacute;e de la garantie du c&eacute;dant apr&egrave;s la vente du fonds.</p>
+      <span class="ref">L145-16 &agrave; L145-16-2</span>
+    </div>
+    <div class="axis">
+      <h3>Dur&eacute;e et sortie</h3>
+      <p>Cong&eacute; triennal, renouvellement, et les clauses qui rendent le revenu moins stable que le loyer affich&eacute;.</p>
+      <span class="ref">L145-4 &middot; L145-8 &agrave; L145-17</span>
+    </div>
+    <div class="axis">
+      <h3>Travaux</h3>
+      <p>La fronti&egrave;re entre entretien et grosses r&eacute;parations, et ce qui reste &agrave; votre charge de propri&eacute;taire.</p>
+      <span class="ref">Art. 606 C. civ. &middot; R145-35</span>
+    </div>
+    <div class="axis">
+      <h3>Destination</h3>
+      <p>L'activit&eacute; autoris&eacute;e, ses restrictions, et la proc&eacute;dure si le locataire veut en changer.</p>
+      <span class="ref">L145-47 &agrave; L145-55</span>
+    </div>
+  </div>
+  <p style="margin-top:18px;">Les clauses susceptibles d'&ecirc;tre r&eacute;put&eacute;es non &eacute;crites sont signal&eacute;es, car ce sont elles qui peuvent faire dispara&icirc;tre une partie du revenu que vous comptez acheter.</p>
+
+  <h2>Ce que BailScore ne fait pas</h2>
+  <div class="not">
+    <p>BailScore ne valorise pas l'immeuble et ne compare pas le loyer au prix du march&eacute;. Il ne remplace ni l'audit complet de l'op&eacute;ration, ni votre avocat, ni votre notaire.</p>
+    <p>C'est un premier filtre sur le bail, rapide et peu co&ucirc;teux, pour savoir o&ugrave; regarder en priorit&eacute; avant d'aller plus loin.</p>
+  </div>
+
+  <h2>Un bail, ou plusieurs par mois</h2>
+  <p>49&nbsp;&euro; pour un bail, sans compte. Si vous en lisez r&eacute;guli&egrave;rement, les formules mensuelles font baisser le co&ucirc;t de chaque analyse.</p>
+  <div class="plans">
+    <div class="plan"><strong>Essentiel</strong><div class="p">99&nbsp;&euro;</div><span>HT / mois, 5 analyses</span></div>
+    <div class="plan"><strong>Pro</strong><div class="p">199&nbsp;&euro;</div><span>HT / mois, 15 analyses</span></div>
+    <div class="plan"><strong>Cabinet</strong><div class="p">349&nbsp;&euro;</div><span>HT / mois, 40 analyses</span></div>
+  </div>
+  <p class="note"><a href="tarifs.html">Voir le d&eacute;tail des tarifs</a> &middot; <a href="index.html#rapport">Voir un extrait de rapport</a> &middot; <a href="a-propos.html">Qui suis-je</a></p>
+</main>
+
+<footer>
+  &copy; 2026 CHRONOWEB SRL &mdash; Tous droits r&eacute;serv&eacute;s &middot; Outil d'aide &agrave; la d&eacute;cision, ne remplace ni un avocat ni un notaire.
+</footer>
+
+</body>
+</html>
