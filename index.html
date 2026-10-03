@@ -210,6 +210,11 @@
   .ex-axe .val{display:inline-block; margin-top:6px; font-weight:700; padding:2px 10px; border-radius:100px; font-size:0.78rem;}
   .ex-row p{font-size:0.94rem; color:#3A362F; line-height:1.6;}
   .ex-reco{margin-top:6px; background:var(--terracotta-dim); border-radius:12px; padding:14px 18px; font-size:0.92rem; color:#7A2E10;}
+  .tabs{display:flex; justify-content:center; gap:8px; margin:-20px 0 22px;}
+  .tab{font-family:inherit; font-weight:700; font-size:0.92rem; padding:9px 22px; border-radius:100px; border:1.5px solid var(--line); background:transparent; color:var(--grey); cursor:pointer;}
+  .tab.on{background:var(--ink); color:var(--paper); border-color:var(--ink);}
+  .extrait[hidden]{display:none;}
+  .extrait-source{margin-top:14px; font-size:0.8rem; color:var(--grey); font-style:italic;}
   .extrait-note{text-align:center; font-size:0.84rem; color:var(--grey); margin-top:18px;}
   .about-sec{padding:0 0 64px;}
   .about-box{max-width:720px; margin:0 auto; background:var(--white); border-radius:18px; padding:30px 34px; box-shadow:0 14px 34px -24px rgba(19,17,15,0.25);}
@@ -510,11 +515,16 @@
   <section id="rapport" style="padding-top:0;">
     <div class="wrap">
       <h2 class="section-title">&Agrave; quoi ressemble un rapport</h2>
-      <p class="section-sub">Extrait d'un rapport r&eacute;el, anonymis&eacute;&nbsp;: nom, adresse, montants et activit&eacute; ont &eacute;t&eacute; retir&eacute;s.</p>
-      <div class="extrait">
+      <p class="section-sub">Un m&ecirc;me bail r&eacute;el, lu c&ocirc;t&eacute; preneur puis c&ocirc;t&eacute; bailleur.</p>
+      <div class="tabs" role="tablist">
+        <button class="tab on" role="tab" id="tab-preneur" aria-selected="true" data-v="preneur">Preneur</button>
+        <button class="tab" role="tab" id="tab-bailleur" aria-selected="false" data-v="bailleur">Bailleur</button>
+      </div>
+
+      <div class="extrait" id="v-preneur">
         <div class="extrait-head"><span>Rapport d'analyse de bail commercial</span><span>Point de vue&nbsp;: preneur</span></div>
         <div class="ex-row">
-          <div class="ex-axe">Destination<br><span class="val mid">4/10</span></div>
+          <div class="ex-axe">Destination<br><span class="val high">4/10</span></div>
           <p>Destination large en principe, mais l'autorisation de l'activit&eacute; principale du preneur est r&eacute;vocable sur simple demande du bailleur, sans indemnit&eacute;. Cette r&eacute;vocabilit&eacute; unilat&eacute;rale cr&eacute;e une ins&eacute;curit&eacute; importante pour l'exploitation et pour la valeur du fonds.</p>
         </div>
         <div class="ex-row">
@@ -526,7 +536,27 @@
           <p>Facult&eacute; de r&eacute;siliation triennale du preneur pr&eacute;serv&eacute;e, avec pr&eacute;avis de six mois par acte extrajudiciaire (L145-4, d'ordre public).</p>
         </div>
         <p class="ex-reco"><strong>Recommandation critique&nbsp;:</strong> s&eacute;curiser l'autorisation d'activit&eacute; en la rendant irr&eacute;vocable, ou obtenir un engagement &eacute;crit du bailleur de ne pas la r&eacute;voquer pendant la dur&eacute;e du bail.</p>
+        <p class="extrait-source">Extrait d'un rapport r&eacute;el, anonymis&eacute;&nbsp;: nom, adresse, montants et activit&eacute; ont &eacute;t&eacute; retir&eacute;s.</p>
       </div>
+
+      <div class="extrait" id="v-bailleur" hidden>
+        <div class="extrait-head"><span>Rapport d'analyse de bail commercial</span><span>Point de vue&nbsp;: bailleur</span></div>
+        <div class="ex-row">
+          <div class="ex-axe">Indexation<br><span class="val low">8/10</span></div>
+          <p>R&eacute;vision annuelle &agrave; la date anniversaire sur l'ILC, avec une base de r&eacute;f&eacute;rence clairement indiqu&eacute;e et une clause de substitution d'indice si l'ILC venait &agrave; dispara&icirc;tre. R&eacute;daction solide et protectrice pour le bailleur.</p>
+        </div>
+        <div class="ex-row">
+          <div class="ex-axe">Cession<br><span class="val high">4/10</span></div>
+          <p>Cession libre &agrave; l'acqu&eacute;reur du fonds, avec simple signification au bailleur (L145-16), ce qui est conforme. Mais aucune garantie solidaire du c&eacute;dant n'est pr&eacute;vue, alors que la loi permet de l'imposer pendant trois ans maximum (L145-16-2). Le bailleur perd une s&eacute;curit&eacute; importante si le repreneur d&eacute;faille.</p>
+        </div>
+        <div class="ex-row">
+          <div class="ex-axe">S&eacute;curit&eacute;<br><span class="val low">7/10</span></div>
+          <p>Clause r&eacute;solutoire de plein droit apr&egrave;s mise en demeure d'un mois, conforme aux standards. En revanche, le d&eacute;p&ocirc;t de garantie est faible (environ un mois de loyer) et il n'y a ni caution personnelle ni garantie &agrave; premi&egrave;re demande.</p>
+        </div>
+        <p class="ex-reco"><strong>Recommandation&nbsp;:</strong> ajouter une clause de garantie solidaire du c&eacute;dant pendant trois ans, porter le d&eacute;p&ocirc;t de garantie &agrave; deux ou trois mois de loyer et pr&eacute;voir une caution du dirigeant ou une garantie bancaire.</p>
+        <p class="extrait-source">Extrait d'un rapport r&eacute;el, anonymis&eacute;&nbsp;: nom, adresse, montants et activit&eacute; ont &eacute;t&eacute; retir&eacute;s.</p>
+      </div>
+
       <p class="extrait-note">Le rapport complet contient le score global, les six axes, les alertes, les points positifs et les recommandations de n&eacute;gociation, en PDF.</p>
     </div>
   </section>
@@ -666,6 +696,19 @@
     <div class="footer-copy">&copy; 2026 CHRONOWEB SRL &mdash; Tous droits r&eacute;serv&eacute;s</div>
   </div>
 </footer>
+
+<script>
+(function(){
+  var tabs=document.querySelectorAll('.tab');
+  function show(v){
+    tabs.forEach(function(t){var on=t.dataset.v===v; t.classList.toggle('on',on); t.setAttribute('aria-selected',on);});
+    document.getElementById('v-preneur').hidden=(v!=='preneur');
+    document.getElementById('v-bailleur').hidden=(v!=='bailleur');
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.v);});});
+  if(/[?&]vue=bailleur/.test(location.search)) show('bailleur');
+})();
+</script>
 
 </body>
 </html>
