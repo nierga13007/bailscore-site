@@ -8,6 +8,10 @@
   var MAIL = 'bailscore13006@gmail.com';
 
   var KB = [
+    { id: 'createur', k: ['qui a cree', 'qui a fonde', 'qui a invente', 'qui a developpe', 'qui est derriere', 'qui etes vous', 'qui es tu', 'createur', 'fondateur', 'fonde', 'cree', 'derriere', 'editeur', 'chronoweb', 'cedric', 'garnier', 'histoire', 'equipe', 'qui est'],
+      a: 'BailScore a été créé par Cédric Garnier, et il est édité par CHRONOWEB SRL. Cédric a passé treize ans dans l\'hôtellerie, dirigé une agence immobilière, et il est aujourd\'hui investisseur immobilier. L\'idée est née d\'un bail commercial de neuf ans, très défavorable au preneur, qu\'il a renoncé à signer.',
+      link: ['Lire son histoire', '/a-propos.html'],
+      next: ['Comment ça marche ?', 'Quel prix ?'] },
     { id: 'quoi', k: ['quoi', 'bailscore', 'outil', 'service', 'propose', 'fait quoi', 'presentation', 'c est quoi'],
       a: 'BailScore lit un bail commercial français et donne un score de risque sur 10, axe par axe : destination, travaux, charges, cession, indexation et sécurité. Chaque alerte cite l\'article de loi sur lequel elle repose.',
       next: ['Comment ça marche ?', 'Quel prix ?'] },
