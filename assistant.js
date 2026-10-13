@@ -8,14 +8,14 @@
   var MAIL = 'bailscore13006@gmail.com';
 
   var KB = [
-    { id: 'createur', k: ['qui a cree', 'qui a fonde', 'qui a invente', 'qui a developpe', 'qui est derriere', 'qui etes vous', 'qui es tu', 'createur', 'fondateur', 'fonde', 'cree', 'derriere', 'editeur', 'chronoweb', 'cedric', 'garnier', 'histoire', 'equipe', 'qui est'],
+    { id: 'createur', k: ['qui a cree', 'qui a fonde', 'qui a invente', 'qui a developpe', 'qui est derriere', 'qui etes vous', 'qui es tu', 'createur', 'fondateur', 'fonde', 'cree', 'derriere', 'editeur', 'cedric', 'garnier', 'histoire', 'equipe', 'qui est'],
       a: 'BailScore a été créé par Cédric Garnier, et il est édité par CHRONOWEB SRL. Cédric a passé treize ans dans l\'hôtellerie, dirigé une agence immobilière, et il est aujourd\'hui investisseur immobilier. L\'idée est née d\'un bail commercial de neuf ans, très défavorable au preneur, qu\'il a renoncé à signer.',
       link: ['Lire son histoire', '/a-propos.html'],
       next: ['Comment ça marche ?', 'Quel prix ?'] },
-    { id: 'quoi', k: ['quoi', 'bailscore', 'outil', 'service', 'propose', 'fait quoi', 'presentation', 'c est quoi'],
+    { id: 'quoi', k: ['c est quoi', 'qu est ce que bailscore', 'qu est ce que c est', 'fait quoi', 'a quoi sert', 'presentation'],
       a: 'BailScore lit un bail commercial français et donne un score de risque sur 10, axe par axe : destination, travaux, charges, cession, indexation et sécurité. Chaque alerte cite l\'article de loi sur lequel elle repose.',
       next: ['Comment ça marche ?', 'Quel prix ?'] },
-    { id: 'marche', k: ['comment', 'fonctionne', 'marche', 'deposer', 'telecharger', 'envoyer', 'etapes', 'analyse'],
+    { id: 'marche', k: ['comment ca marche', 'comment ca fonctionne', 'comment fonctionne', 'fonctionnement', 'analyser mon bail', 'analyser un bail', 'analyser le bail', 'deposer', 'etapes'],
       a: 'Vous déposez votre bail en PDF ou en photos (JPG, PNG). Le score global s\'affiche en général en moins de 60 secondes, gratuitement. Le détail par axe, les alertes et les recommandations se débloquent ensuite.',
       link: ['Voir l\'aperçu gratuit', 'https://bailscore-gnlc.vercel.app'],
       next: ['Quel prix ?', 'Mes données sont-elles conservées ?'] },
@@ -45,7 +45,7 @@
       a: 'Votre document est utilisé uniquement le temps de l\'analyse et n\'est pas conservé au-delà. Seul le résultat (score et détail) est gardé temporairement pour que vous y accédiez après paiement. Le site n\'utilise aucun cookie de traçage ni de publicité.',
       link: ['Politique de confidentialité', '/confidentialite.html'],
       next: ['Comment ça marche ?'] },
-    { id: 'docs', k: ['document', 'documents', 'format', 'photo', 'scan', 'jpg', 'png', 'quels baux', 'cafe', 'restaurant', 'hotel', 'chr', 'commerce', 'habitation', 'professionnel bail'],
+    { id: 'docs', weak: true, k: ['bureau', 'bureaux', 'boutique', 'entrepot', 'local commercial', 'document', 'documents', 'format', 'photo', 'scan', 'jpg', 'png', 'quels baux', 'cafe', 'restaurant', 'hotel', 'chr', 'commerce', 'habitation', 'professionnel bail'],
       a: 'BailScore est conçu pour les baux commerciaux français, en PDF ou en photos (JPG, PNG), avec une attention particulière au secteur CHR (cafés, hôtels, restaurants). Il fonctionne pour un bail commercial classique. Il ne couvre pas les baux d\'habitation.',
       next: ['Et pour un bail étranger ?'] },
     { id: 'etranger', k: ['suisse', 'belgique', 'etranger', 'luxembourg', 'canada', 'espagne', 'italie', 'allemagne', 'maroc', 'tunisie', 'andorre', 'bail etranger'],
@@ -59,7 +59,7 @@
       a: 'La grille s\'appuie sur le Code de commerce : L145-4 (durée et résiliation triennale), L145-37 à L145-39 (révision et indexation), L145-40-2 (charges et inventaire), L145-16 (cession), L145-47 et L145-48 (déspécialisation), ainsi que l\'article 606 du Code civil (grosses réparations).',
       link: ['Lire la FAQ complète', '/faq.html'],
       next: ['Ça remplace un avocat ?'] },
-    { id: 'paiement', k: ['paiement', 'payer par', 'par carte', 'carte', 'stripe', 'facture', 'rembours', 'avoir', 'cgv'],
+    { id: 'paiement', k: ['paiement', 'payer par', 'par carte', 'carte', 'stripe', 'facture', 'rembourser', 'remboursement', 'avoir', 'cgv'],
       a: 'Le paiement est sécurisé par Stripe, et la prestation est facturée par CHRONOWEB SRL. Les conditions, y compris sur les erreurs d\'analyse, sont dans les CGV.',
       link: ['Voir les CGV', '/cgv.html'],
       next: ['Quel prix ?'] },
@@ -68,7 +68,7 @@
       mail: true }
   ];
 
-  var GREETING = 'Bonjour, je suis l\'assistant automatique de BailScore. Je réponds aux questions sur l\'outil, les prix et la confidentialité. Je ne donne pas d\'avis juridique sur un bail.';
+  var GREETING = 'Bonjour, je suis l\'assistant automatique de BailScore. Je réponds aux questions sur l\'outil, les prix, la confidentialité et tout ce qui est écrit sur le site (FAQ, blog, mentions légales). Je ne donne pas d\'avis juridique sur un bail.';
   var FALLBACK = 'Je n\'ai pas la réponse à cette question. Écrivez-nous et vous aurez une réponse directe.';
   var CHIPS = ['Comment ça marche ?', 'Quel prix ?', 'Mes données sont-elles conservées ?', 'Ça remplace un avocat ?'];
 
@@ -76,19 +76,172 @@
     return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[’']/g, ' ').replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim();
   }
 
+  /* Renvoie l'entrée préparée la plus proche, avec sa « couverture » : part des mots de la question
+     que ses mots-clés expliquent. Une couverture faible = question plus précise que la réponse préparée. */
+  var GUARD = { cas: 1, etranger: 1 };
   function find(q) {
     var n = ' ' + norm(q) + ' ';
-    var best = null, bestScore = 0;
+    var qt = tokens(q).filter(function (t) { return t.indexOf('bailscor') !== 0; });
+    var best = null, bestScore = 0, bestCov = 1;
     KB.forEach(function (e) {
-      var s = 0;
+      var s = 0, covered = {};
       e.k.forEach(function (w) {
-        var nw = norm(w);
-        if (n.indexOf(' ' + nw + ' ') > -1) s += 2 + nw.split(' ').length;
-        else if (nw.length > 4 && n.indexOf(nw) > -1) s += 1;
+        var nw = norm(w), hit = false;
+        if (n.indexOf(' ' + nw + ' ') > -1) { s += 2 + nw.split(' ').length; hit = true; }
+        else if (nw.length > 4 && n.indexOf(nw) > -1) { s += 1; hit = true; }
+        if (hit) tokens(w).forEach(function (t) { covered[t] = 1; });
       });
-      if (s > bestScore) { bestScore = s; best = e; }
+      if (s > bestScore) {
+        bestScore = s; best = e;
+        var c = 0; qt.forEach(function (t) { if (covered[t]) c++; });
+        bestCov = qt.length ? c / qt.length : 1;
+      }
     });
-    return bestScore >= 2 ? best : null;
+    if (bestScore < 2) return null;
+    return { e: best, strong: !!GUARD[best.id] || bestCov > 0.5 };
+  }
+
+
+  /* ---------- Recherche dans le texte du site (lecture des pages, sans réseau externe) ---------- */
+  var STOP = ' le la les un une des de du et ou en au aux ce ces cet cette est sont etre avoir ai as avez a pas ne que qui quoi quel quelle quels quelles pour par sur dans avec sans mon ma mes ton ta tes son sa ses notre votre vos nos il elle ils je tu nous vous on y se me te lui leur peut peux puis plus tres tout tous faut faire fait comment combien est ce ca cela si ou ni mais donc car pourquoi quand cest jai '.split(' ').reduce(function (o, w) { if (w) o[w] = 1; return o; }, {});
+  function stem(w) {
+    w = w.replace(/(s|x)$/, '').replace(/ement$/, '');
+    if (w.length > 6) w = w.replace(/(es|er|ez|ent|e)$/, '');
+    if (w.length > 6) w = w.replace(/(e|s)$/, '');
+    return w;
+  }
+  var SYN = { reussite: 'fiabilite', succes: 'fiabilite', precision: 'fiabilite', exactitude: 'fiabilite', mensualite: 'loyer' };
+  function tokens(t) {
+    return norm(t).split(' ').filter(function (w) { return w.length > 2 && !STOP[w]; }).map(function (w) { return stem(SYN[w] || w); });
+  }
+  var siteIndex = null, siteLoading = null;
+  function textOf(el) { return (el.textContent || '').replace(/\s+/g, ' ').trim(); }
+
+  function extract(doc, url) {
+    var out = [];
+    var pageTitle = (doc.title || url).replace(/\s*[|—–-]\s*BailScore.*$/i, '').trim() || url;
+    ['script', 'style', 'noscript', 'nav', 'header', 'footer', 'form', 'button', 'svg', 'iframe'].forEach(function (t) {
+      Array.prototype.slice.call(doc.getElementsByTagName(t)).forEach(function (n) { if (n.parentNode) n.parentNode.removeChild(n); });
+    });
+    var root = doc.querySelector('main') || doc.body;
+    if (!root) return out;
+    if (/^\/blog\/?(index\.html)?$/.test(url)) return out;
+    var md = doc.querySelector('meta[name="description"]');
+    if (md && md.getAttribute('content')) out.push({ page: pageTitle, url: url, head: pageTitle, anchor: '', text: md.getAttribute('content').trim(), meta: true });
+    var head = pageTitle, anchor = '', buf = [];
+    function flush() {
+      if (!buf.length) return;
+      var chunk = '', i;
+      for (i = 0; i < buf.length; i++) {
+        if ((chunk + ' ' + buf[i]).length > 520 && chunk) { out.push({ page: pageTitle, url: url, head: head, anchor: anchor, text: chunk }); chunk = ''; }
+        chunk = (chunk ? chunk + ' ' : '') + buf[i];
+      }
+      if (chunk) out.push({ page: pageTitle, url: url, head: head, anchor: anchor, text: chunk });
+      buf = [];
+    }
+    function walk(n) {
+      var c = n.firstChild;
+      while (c) {
+        if (c.nodeType === 1) {
+          var tag = c.tagName.toLowerCase();
+          if (tag === 'h1' || tag === 'h2' || tag === 'h3') {
+            flush();
+            head = textOf(c) || head;
+            anchor = c.id || (c.parentNode && c.parentNode.id) || '';
+          } else if (tag === 'details') {
+            flush();
+            var sm = c.querySelector('summary');
+            var q = sm ? textOf(sm) : '';
+            var body = [];
+            Array.prototype.slice.call(c.children).forEach(function (k) { if (k !== sm) { var t = textOf(k); if (t) body.push(t); } });
+            if (q || body.length) out.push({ page: pageTitle, url: url, head: q || head, anchor: c.id || '', text: body.join(' ') || q, faq: true });
+          } else if (tag === 'p' || tag === 'li' || tag === 'blockquote' || tag === 'td' || tag === 'figcaption') {
+            var t2 = textOf(c).replace(/^\d{1,2}\s+\S+\s+\d{4}\s*·\s*Lecture\s+\d+\s*minutes?\s*/i, '');
+            if (t2.length > 25) buf.push(t2);
+          } else {
+            walk(c);
+          }
+        }
+        c = c.nextSibling;
+      }
+    }
+    walk(root);
+    flush();
+    return out;
+  }
+
+  function loadSite() {
+    if (siteIndex) return Promise.resolve(siteIndex);
+    if (siteLoading) return siteLoading;
+    siteLoading = fetch('/sitemap.xml', { credentials: 'omit' }).then(function (r) { return r.text(); }).then(function (xml) {
+      var locs = [], re = /<loc>([^<]+)<\/loc>/g, m;
+      while ((m = re.exec(xml))) { try { locs.push(new URL(m[1]).pathname); } catch (e) { } }
+      ['/', '/faq.html', '/tarifs.html', '/a-propos.html', '/cgv.html', '/confidentialite.html', '/mentions-legales.html'].forEach(function (u) { if (locs.indexOf(u) < 0) locs.push(u); });
+      return Promise.all(locs.map(function (path) {
+        return fetch(path, { credentials: 'omit' }).then(function (r) { return r.ok ? r.text() : ''; }).then(function (html) {
+          if (!html) return [];
+          var doc = new DOMParser().parseFromString(html, 'text/html');
+          return extract(doc, path);
+        }).catch(function () { return []; });
+      }));
+    }).then(function (lists) {
+      var passages = [].concat.apply([], lists);
+      var df = {}, total = 0;
+      passages.forEach(function (p, i) {
+        p.i = i;
+        p.toks = tokens(p.head + ' ' + p.head + ' ' + p.text);
+        p.ptoks = tokens(p.page + ' ' + p.url.replace(/[\/.\-_]+/g, ' ').replace(/ html$/, ''));
+        p.len = p.toks.length;
+        total += p.len;
+        var seen = {};
+        p.toks.forEach(function (t) { if (!seen[t]) { seen[t] = 1; df[t] = (df[t] || 0) + 1; } });
+      });
+      siteIndex = { passages: passages, df: df, n: passages.length, avg: total / Math.max(1, passages.length) };
+      return siteIndex;
+    }).catch(function () { siteIndex = { passages: [], df: {}, n: 0, avg: 1 }; return siteIndex; });
+    return siteLoading;
+  }
+
+  function searchSite(q) {
+    return loadSite().then(function (ix) {
+      var qt = tokens(q).filter(function (t, i, a) { return a.indexOf(t) === i && t.indexOf('bailscor') !== 0; });
+      if (!qt.length || !ix.n) return [];
+      var need = qt.length <= 2 ? 1 : Math.ceil(qt.length * 0.5);
+      var res = [];
+      ix.passages.forEach(function (p) {
+        var tf = {}, matched = 0, sc = 0;
+        p.toks.forEach(function (t) { tf[t] = (tf[t] || 0) + 1; });
+        qt.forEach(function (t) {
+          var inTitle = p.ptoks.indexOf(t) > -1;
+          if (!tf[t] && !inTitle) return;
+          matched++;
+          var idf = Math.log(1 + (ix.n - (ix.df[t] || 0) + 0.5) / ((ix.df[t] || 0) + 0.5));
+          var f = tf[t] || 0;
+          if (f) sc += idf * (f * 2.2) / (f + 1.2 * (0.25 + 0.75 * p.len / ix.avg));
+          if (inTitle) sc += idf * 1.2;
+        });
+        if (matched >= need) { if (p.faq) sc *= 1.25; res.push({ p: p, s: sc, m: matched }); }
+      });
+      res.sort(function (a, b) { return b.s - a.s; });
+      if (!res.length || res[0].s < (qt.length === 1 ? 3.5 : res[0].m < qt.length ? 5.5 : 1.6)) return [];
+      return res.slice(0, 6);
+    });
+  }
+
+  function excerpt(text, qt) {
+    var max = 430;
+    if (text.length <= max) return text;
+    var sents = (text.match(/.+?[.!?](?=\s|$)|.+$/g) || [text]).map(function (x) { return x.replace(/^\s+/, '') + ' '; });
+    var best = 0, bestScore = -1, i;
+    for (i = 0; i < sents.length; i++) {
+      var st = tokens(sents[i]), sc = 0;
+      qt.forEach(function (t) { if (st.indexOf(t) > -1) sc++; });
+      if (sc > bestScore) { bestScore = sc; best = i; }
+    }
+    var out = '';
+    for (i = best; i < sents.length && (out + sents[i]).length <= max; i++) out += sents[i];
+    if (!out) out = sents[best].slice(0, max) + '…';
+    return out.trim();
   }
 
   var css = '' +
@@ -178,23 +331,64 @@
       var b = document.createElement('button');
       b.type = 'button';
       b.textContent = t;
-      b.addEventListener('click', function () { ask(t); });
+      b.addEventListener('click', function () { ask(t, true); });
       chips.appendChild(b);
     });
   }
 
-  function ask(q) {
+  var CHIP_ID = {
+    'Comment ça marche ?': 'marche', 'Quel prix ?': 'prix', 'Mes données sont-elles conservées ?': 'donnees',
+    'Ça remplace un avocat ?': 'avocat', 'Sur quels textes ça s\'appuie ?': 'textes', 'Et pour un bail étranger ?': 'etranger',
+    'Quels documents puis-je analyser ?': 'docs'
+  };
+  function byId(id) { for (var i = 0; i < KB.length; i++) if (KB[i].id === id) return KB[i]; return null; }
+  function showCurated(e) { addMsg(e.a, 'bot', { link: e.link, mail: e.mail }); setChips(e.next || CHIPS); }
+
+  function showSite(res, q) {
+    var qt = tokens(q);
+    var top = res[0].p;
+    var txt = excerpt(top.text, qt);
+    var nx = siteIndex && siteIndex.passages[top.i + 1];
+    if (txt.length < 80 && nx && nx.url === top.url && !top.faq) txt = txt + ' ' + excerpt(nx.text, qt);
+    var href = top.url + (top.anchor ? '#' + top.anchor : '');
+    var label = top.faq ? 'Voir la réponse complète' : 'Lire la page « ' + top.page + ' »';
+    addMsg('D\'après le site : ' + txt, 'bot', { link: [label, href] });
+    var other = null;
+    for (var i = 1; i < res.length; i++) { if (res[i].p.url !== top.url && res[i].s >= res[0].s * 0.6) { other = res[i].p; break; } }
+    if (other) {
+      var d = log.lastChild, br = document.createElement('br'), a = document.createElement('a');
+      a.textContent = 'Voir aussi : ' + (other.faq || other.head === other.page ? other.page : other.head) + ' →';
+      a.href = other.url + (other.anchor ? '#' + other.anchor : '');
+      d.appendChild(br); d.appendChild(a);
+    }
+    setChips(CHIPS);
+    scroll();
+  }
+
+  function ask(q, forced) {
     q = (q || '').trim();
     if (!q) return;
     addMsg(q, 'me');
-    var e = find(q);
-    if (e) {
-      addMsg(e.a, 'bot', { link: e.link, mail: e.mail });
-      setChips(e.next || CHIPS);
-    } else {
-      addMsg(FALLBACK, 'bot', { mail: true });
-      setChips(CHIPS);
-    }
+    var cid = forced && CHIP_ID[q] ? byId(CHIP_ID[q]) : null;
+    if (cid) { showCurated(cid); return; }
+    var nq = norm(q);
+    if (/^(bonjour|salut|bonsoir|coucou|hello)( .*)?$/.test(nq) && nq.split(' ').length <= 3) { addMsg('Bonjour ! Posez-moi votre question sur BailScore, les prix, la confidentialité ou les baux commerciaux.', 'bot'); setChips(CHIPS); return; }
+    if (/^(merci|ok merci|super merci|parfait merci|merci beaucoup)( .*)?$/.test(nq) && nq.split(' ').length <= 4) { addMsg('Avec plaisir. Si vous avez une autre question, je suis là.', 'bot'); setChips(CHIPS); return; }
+    var f = find(q), e = f && f.e;
+    if (f && f.strong && !e.weak) { showCurated(e); return; }
+    var wait = document.createElement('div');
+    wait.className = 'bsa-m bsa-bot';
+    wait.textContent = 'Je cherche dans le site…';
+    log.appendChild(wait); scroll();
+    searchSite(q).then(function (res) {
+      if (wait.parentNode) wait.parentNode.removeChild(wait);
+      if (res && res.length) showSite(res, q);
+      else if (e) showCurated(e);
+      else { addMsg(FALLBACK, 'bot', { mail: true }); setChips(CHIPS); }
+    }).catch(function () {
+      if (wait.parentNode) wait.parentNode.removeChild(wait);
+      if (e) showCurated(e); else { addMsg(FALLBACK, 'bot', { mail: true }); setChips(CHIPS); }
+    });
   }
 
   function open() {
